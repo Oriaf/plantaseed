@@ -9,11 +9,16 @@ public class DetectCollision : MonoBehaviour
     public float collisionRadius;
     public LayerMask GroundLayer;
 
+    /*
+     * Checks if their is a ground object at an offset in the given direction
+     */
     public bool CheckGround(Vector3 Direction)
     {
+        //The position at the offset in the given direction
         Vector3 Pos = transform.position + (Direction * bottomOffset);
+        //Check if any object tagged as being "Ground" is colliding with the calculated point
         Collider[] hitColliders = Physics.OverlapSphere(Pos, collisionRadius, GroundLayer);
-        if (hitColliders.Length > 0)
+        if (hitColliders.Length > 0) //If at least one object was collided with
         {
             //we are on the ground
             return true;
@@ -22,6 +27,9 @@ public class DetectCollision : MonoBehaviour
         return false;
     }
 
+    /*
+     * Visualizes the hitbox for this check
+     */
     void OnDrawGizmosSelected()
     {
         // Draw a yellow sphere at the transform's position

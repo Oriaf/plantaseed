@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigid = GetComponentInChildren<Rigidbody>();
         Colli = GetComponent<DetectCollision>();
-        GroundDir = transform.up;
-        SetGrounded();
+        GroundDir = transform.up; //Get the y-axis (green axis) of the player
+        SetGrounded(); //Start by being connected to the ground
         
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.parent.transform;
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()   //inputs
     {
+        //Update the position of the character
         transform.position = Rigid.position;
 
         //check for jumping
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()  //world movement
     {
+        //Time from last frame
         delta = Time.deltaTime;
 
         if (States == WorldState.Grounded)
@@ -91,16 +93,15 @@ public class PlayerMovement : MonoBehaviour
 
            if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
             {
-                //we are not moving, lerp to a walk speed
+                //we are not moving, linear interpolate to a walk speed
                 Spd = 0f;
             }
-          
-            
+           
+            //Update position based on input and "ground gravity"
             MoveSelf(delta, Spd, Acceleration);
 
-            //switch to air
+            //Check if the character is still on ground
             bool Ground = Colli.CheckGround(-GroundDir);
-
             if (!Ground)
             {
                 SetInAir();
@@ -113,11 +114,11 @@ public class PlayerMovement : MonoBehaviour
             if (HasJumped) //only return back to ground once jump state is over
                 return;
 
+            //Update the jump based on the current "ground gravity"
             FallingCtrl(delta, Speed, Acceleration);
 
-            //check for ground
+            //Check if the character is still in air
             bool Ground = Colli.CheckGround(-GroundDir);
-
             if (Ground)
             {
                 SetGrounded();
@@ -147,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
         SetInAir();
 
+        //Get pushed relatively up by a force proportional to UpwardsAmt
         if (UpwardsAmt != 0)
             Rigid.AddForce((transform.up * UpwardsAmt), ForceMode.Impulse);
 
@@ -155,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.3f);
         HasJumped = false;
     }     
+    
     //check the angle of the floor we are stood on
     Vector3 FloorAngleCheck()
     {
@@ -162,12 +165,13 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit HitCentre;
         RaycastHit HitBack;
 
+        //Send out a ray from three specified points, downwards, to see where they hit the ground
         Physics.Raycast(GroundChecks[0].position, -GroundChecks[0].transform.up, out HitFront, 10f, GroundLayers);
         Physics.Raycast(GroundChecks[1].position, -GroundChecks[1].transform.up, out HitCentre, 10f, GroundLayers);
         Physics.Raycast(GroundChecks[2].position, -GroundChecks[2].transform.up, out HitBack, 10f, GroundLayers);
 
+        //Align the direction to the ground based on the ray test
         Vector3 HitDir = transform.up;
-
         if (HitFront.transform != null)
         {
             HitDir += HitFront.normal;
@@ -193,14 +197,18 @@ public class PlayerMovement : MonoBehaviour
         float _zMov = Input.GetAxis("Vertical");
         bool MoveInput = false;
 
+        //Get the axis for the Cameras' coordinate system
         Vector3 screenMovementForward = CamY.transform.forward;
         Vector3 screenMovementRight = CamY.transform.right;
 
+        //Calculate the character's speed in each direction of the camera
         Vector3 h = screenMovementRight * _xMov;
         Vector3 v = screenMovementForward * _zMov;
 
+        //Calculate the resulting direction vector that the character will move along
         Vector3 moveDirection = (v + h).normalized;
 
+        //Check for input and set targetDir
         if (_xMov == 0 && _zMov == 0)
         {
             targetDir = transform.forward;
@@ -216,9 +224,11 @@ public class PlayerMovement : MonoBehaviour
             targetDir = transform.forward;
         }
 
+        //Create a Rotation transformation that rotates the character so that targetDir is forward
         Quaternion lookDir = Quaternion.LookRotation(targetDir);
         float TurnSpd = turnSpeed;
 
+        //Find the desired direction vector to the ground and interpolate towards it
         Vector3 SetGroundDir = FloorAngleCheck();
         GroundDir = Vector3.Lerp(GroundDir, SetGroundDir, d * GravityRotationSpeed);
 
@@ -242,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 targetVelocity = MovDirection * Spd;
 
-        //push downwards in downward direction of mesh
+        //push downwards in downward direction of mesh ("gravity")
         targetVelocity -= SetGroundDir * DownwardPush;
 
         Vector3 dir = Vector3.Lerp(curVelocity, targetVelocity, d * Accel);

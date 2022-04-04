@@ -41,10 +41,10 @@ public class CameraFollow : MonoBehaviour
     //setup objects
     void Awake()
     {
-        transform.parent = null;
+        transform.parent = null; //Detach the coordinates of the parent of the Camera
 
         pivot = camTransform.parent;
-        LookAtPos = target.position;
+        LookAtPos = target.position; //Look towards the target that the camera follows
         CurrentDis = DistanceFromPlayer;
 
         tiltAngle = 10f;
@@ -78,11 +78,8 @@ public class CameraFollow : MonoBehaviour
         HandleRotation(d, v, h, rotateSpeed);
         handlePivotPosition();
 
-        //look at player
-        
-        
+        //Look towards the player
         LookAtPos = target.position;
-
         Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
         transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
     }
