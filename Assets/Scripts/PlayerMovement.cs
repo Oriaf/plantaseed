@@ -65,20 +65,22 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Rigid.position;
 
         //check for jumping
-        if (States == WorldState.Grounded)
-        {
+        //if (States == WorldState.Grounded)
+        //{
             if (Input.GetButtonDown("Jump"))
             {
                 //if the player can jump, isnt attacking and isnt using an item
-                if (!HasJumped)
+                /*if (!HasJumped)
                 {              
 
                     StopCoroutine(JumpUp(JumpAmt));
                     StartCoroutine(JumpUp(JumpAmt));
                     return;
-                }
+                }*/
+                Debug.Log("Jumpedy jump!");
+                SwitchGravity();
             }
-        }
+        //}
     }
 
     // Update is called once per frame
@@ -156,6 +158,14 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.3f);
         HasJumped = false;
+    }
+
+    void SwitchGravity()
+    {
+        //TODO: Add sound effect for switching gravity!
+        Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
+        this.transform.RotateAround(this.transform.position, this.transform.right, 180);
+        //SetInAir();
     }
 
     /*

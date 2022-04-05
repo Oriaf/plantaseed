@@ -170,4 +170,4 @@ MonoBehaviour:
   minAngle: 10
   maxAngle: 35
   LookDirectionSpeed: -7
-  DistanceFromPlayer: -20
+  DistanceFromPlayer: -10

@@ -399,7 +399,7 @@ MonoBehaviour:
   Speed: 15
   Acceleration: 4
   turnSpeed: 20
-  JumpAmt: 2
+  JumpAmt: 4
 --- !u!114 &439413780156030806
 MonoBehaviour:
   m_ObjectHideFlags: 0
