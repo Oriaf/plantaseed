@@ -156,8 +156,37 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.3f);
         HasJumped = false;
-    }     
-    
+    }
+
+    /*
+    RaycastHit MultiRayCheck(Vector3 start, Vector3 direction)
+    {
+        Vector3 pos = start + (direction * 0.8f);
+        
+        //Check if any object tagged as being "Ground" is colliding with the calculated point
+        Collider[] hitColliders = Physics.OverlapSphere(pos, 0.5f, GroundLayers);
+        float closest = float.MaxValue;
+        Vector3 point = start;
+        foreach (Collider hit in hitColliders)
+        {
+            Vector3 closestPoint = hit.ClosestPointOnBounds(pos);
+            float distance = Vector3.Distance(closestPoint, pos);
+            if (distance < closest)
+            {
+                distance = closest;
+                point = closestPoint;
+            }
+        }
+
+        RaycastHit result = new RaycastHit();
+        if (closest < float.MaxValue)
+        { 
+            Physics.Raycast(point, direction, out result, 1f, GroundLayers);
+        }
+        return result;
+    }
+    */
+
     //check the angle of the floor we are stood on
     Vector3 FloorAngleCheck()
     {
@@ -169,7 +198,14 @@ public class PlayerMovement : MonoBehaviour
         Physics.Raycast(GroundChecks[0].position, -GroundChecks[0].transform.up, out HitFront, 10f, GroundLayers);
         Physics.Raycast(GroundChecks[1].position, -GroundChecks[1].transform.up, out HitCentre, 10f, GroundLayers);
         Physics.Raycast(GroundChecks[2].position, -GroundChecks[2].transform.up, out HitBack, 10f, GroundLayers);
-
+        
+        /*
+        //The position at the offset in the given direction
+        HitFront = MultiRayCheck(GroundChecks[0].position, -GroundChecks[0].transform.up);
+        HitCentre = MultiRayCheck(GroundChecks[1].position, -GroundChecks[1].transform.up);
+        HitBack = MultiRayCheck(GroundChecks[2].position, -GroundChecks[2].transform.up);
+        */
+         
         //Align the direction to the ground based on the ray test
         Vector3 HitDir = transform.up;
         if (HitFront.transform != null)

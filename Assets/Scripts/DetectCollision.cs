@@ -15,12 +15,12 @@ public class DetectCollision : MonoBehaviour
     public bool CheckGround(Vector3 Direction)
     {
         //The position at the offset in the given direction
-        Vector3 Pos = transform.position + (Direction * bottomOffset);
+        Vector3 pos = transform.position + (Direction * bottomOffset);
         //Check if any object tagged as being "Ground" is colliding with the calculated point
-        Collider[] hitColliders = Physics.OverlapSphere(Pos, collisionRadius, GroundLayer);
+        Collider[] hitColliders = Physics.OverlapSphere(pos, collisionRadius, GroundLayer);
+
         if (hitColliders.Length > 0) //If at least one object was collided with
         {
-            //we are on the ground
             return true;
         }
 
