@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: FollowTarget
       value: 
       objectReference: {fileID: 439413780689832021}
+    - target: {fileID: 4435404769530729551, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+      propertyPath: GroundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4580406867869894711, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
       propertyPath: m_Name
       value: Camera
