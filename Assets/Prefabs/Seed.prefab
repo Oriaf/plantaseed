@@ -541,8 +541,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   GravityRotationSpeed: 120
-  Speed: 10
-  Acceleration: 2
+  Speed: 15
+  Acceleration: 4
   turnSpeed: 20
   JumpAmt: 4
 --- !u!114 &3116074581588989889
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d6bd294bb6f944fadfda3e65ed3caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomOffset: 0.3
+  bottomOffset: 0.8
   frontOffset: 0
   collisionRadius: 0.5
   GroundLayer:
