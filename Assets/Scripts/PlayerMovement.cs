@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(JumpUp(JumpAmt));
                     return;
                 }*/
-                Debug.Log("Jumpedy jump!");
                 SwitchGravity();
             }
         //}
@@ -243,7 +242,9 @@ public class PlayerMovement : MonoBehaviour
 
         //Find the desired direction vector to the ground and interpolate towards it
         Vector3 SetGroundDir = FloorAngleCheck();
+        //Debug.Log("Ground Dir: " + SetGroundDir);
         GroundDir = Vector3.Lerp(GroundDir, SetGroundDir, d * GravityRotationSpeed);
+        //Debug.Log("Ground Dir: " + GroundDir);
 
         //lerp mesh slower when not on ground
         RotateSelf(SetGroundDir, d, GravityRotationSpeed);
