@@ -36,6 +36,9 @@ public class CameraFollow : MonoBehaviour
     private float lookAngle;
     private float tiltAngle;
 
+    [Header("Out of Bounds Check")]
+    public LayerMask GroundLayer;
+
     float delta;
 
     //setup objects
@@ -55,6 +58,7 @@ public class CameraFollow : MonoBehaviour
     }
     private void Update()
     {
+        //Place the camera at the position of the FollowTarget at the begining of each frame
         transform.position = FollowTarget.position;
     }
 
@@ -83,10 +87,40 @@ public class CameraFollow : MonoBehaviour
         Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
         transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
     }
+    
+    /*
+     * Checks if their is a ground object at an offset in the given direction
+     */
+    RaycastHit collisionCheck(Vector3 pos, Vector3 direction, float distance)
+    {
+        Debug.Log("Point: " + pos + ", Direction: " + direction + ", Max Dist: " + distance);
+        //Check if any object tagged as being "Ground" is colliding with the calculated point
+        RaycastHit[] hits = Physics.RaycastAll(pos, direction, distance, GroundLayer);
+        Debug.Log(hits.Length);
 
+        RaycastHit closest = new RaycastHit();
+        closest.distance = distance;
+        closest.normal = new Vector3(0, 0, 0);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.distance < closest.distance) closest = hit;
+        }
+
+        return closest;
+    }
+
+    /*
+     * Push the camera behind the player by the specified distance
+     */
     void handlePivotPosition()
     {
         float targetZ = DistanceFromPlayer;
+        
+        //Check if the camera would go out of bounds
+        RaycastHit bounds = collisionCheck(pivot.position, -pivot.forward, Mathf.Abs(targetZ));
+        targetZ = Mathf.Sign(targetZ) * (bounds.distance - 1); //TODO: Remove the quick fix and make this better
+        //camTransform.Translate(bounds.normal, Space.World); //Adjust the camera to be inside of the layer
+        Debug.Log("TargetZ: " + targetZ);
 
         CurrentDis = Mathf.Lerp(CurrentDis, targetZ, delta * 5f);
 
@@ -95,6 +129,9 @@ public class CameraFollow : MonoBehaviour
         camTransform.localPosition = tp;
     }
 
+    /*
+     * Rotate the camera as needed
+     */
     void HandleRotation(float d, float v, float h, float speed)
     {
         if (turnSmoothing > 0)
