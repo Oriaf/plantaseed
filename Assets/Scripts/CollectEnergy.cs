@@ -7,11 +7,18 @@ public class CollectEnergy : MonoBehaviour
     public float timeRemaining = 10;
     public bool timerIsRunning = false;
     public Text timeText;
+    
+    public AudioSource audioSource;
+    void Start()
+    {
+        
+    }
    
     private void OnTriggerEnter(Collider other)
     {
         timeRemaining = 10;
         timerIsRunning = true;
+        audioSource.Play();
     }
 
     void Update()
@@ -23,7 +30,7 @@ public class CollectEnergy : MonoBehaviour
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
 
-                // Play sound
+                
             }
             else
             {
@@ -31,7 +38,7 @@ public class CollectEnergy : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
 
-                // stop sound
+                audioSource.Stop();
             }
         }
     }
