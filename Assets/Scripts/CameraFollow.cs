@@ -41,6 +41,9 @@ public class CameraFollow : MonoBehaviour
 
     float delta;
 
+    [Header("Camera Switch")]
+    public Camera camUp;
+
     //setup objects
     void Awake()
     {
@@ -60,6 +63,10 @@ public class CameraFollow : MonoBehaviour
     {
         //Place the camera at the position of the FollowTarget at the begining of each frame
         transform.position = FollowTarget.position;
+
+        bool cameraLook = Input.GetAxis("CameraLook") != 0;
+        camUp.enabled = cameraLook;
+        CamUnit.enabled = !cameraLook;
     }
 
     private void FixedUpdate()
@@ -70,6 +77,7 @@ public class CameraFollow : MonoBehaviour
         {
             return;
         }
+
         Tick(delta);
     }
 
