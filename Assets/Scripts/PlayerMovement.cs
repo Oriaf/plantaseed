@@ -43,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
     public float JumpAmt;
     private bool HasJumped;
 
+    [Header("Sounds")]
+    public AudioSource gravityFlipSound;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -78,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
                     return;
                 }*/
                 SwitchGravity();
+                gravityFlipSound.Play();
             }
         //}
     }

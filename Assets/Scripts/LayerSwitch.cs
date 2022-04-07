@@ -22,6 +22,7 @@ public class LayerSwitch : MonoBehaviour
     //
     private void OnTriggerEnter(Collider other)
     {
+
         /*if (other.CompareTag("Player"))
         {
             //Debug.Log(this.name + ": " + other.gameObject.name + " tagged with " + other.tag);
