@@ -6,6 +6,8 @@ using UnityEngine;
 public class LayerSwitch : MonoBehaviour
 {
     private Collider layerCollider;
+    public AudioSource gravityFlipSound;
+
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,11 @@ public class LayerSwitch : MonoBehaviour
     //
     private void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag("Player"))
+        {
+            gravityFlipSound.Play();
+        }
+
         /*if (other.CompareTag("Player"))
         {
             //Debug.Log(this.name + ": " + other.gameObject.name + " tagged with " + other.tag);
