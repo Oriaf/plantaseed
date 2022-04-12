@@ -2,52 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class CollectEnergy : MonoBehaviour
 {
-    public float timeRemaining = 10;
-    public bool timerIsRunning = false;
-    public Text timeText;
-    
+    public float maxHealth = 100.0f;
+    private float playerHealth = 100.0f;
+    public float damageUnit = 5.0f;
+    public float damageDeltaTime = 3.0f;
+    public Image healthImg; //Insert the health-bar for the green image that is changed in the script
+    private float countdown;
     public AudioSource audioSource;
-    void Start()
+  
+   void Start ()
     {
-        
+        countdown = damageDeltaTime;
     }
-   
+
+
     private void OnTriggerEnter(Collider other)
     {
-        timeRemaining = 10;
-        timerIsRunning = true;
-        audioSource.Play();
+        if (other.gameObject.CompareTag("Energy"))
+        {
+            //Destroy(other.gameObject); //Could be fun to have as part of the game. 
+            playerHealth = maxHealth;
+            audioSource.Play();
+            UpdateHealth();
+            countdown = damageDeltaTime;
+        }
+
     }
 
     void Update()
     {
-        if (timerIsRunning)
-        {
-            if (timeRemaining > 0)
+            countdown -= Time.deltaTime;
+            if (countdown < 0.0f) 
             {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
+                playerHealth -= damageUnit;
+                countdown = damageDeltaTime;
+                UpdateHealth();
+        }
 
-                
-            }
-            else
+        if (playerHealth < 0.0f)
             {
-                Debug.Log("Time has run out and you are dead");
-                timeRemaining = 0;
-                timerIsRunning = false;
-
+                //Debug.Log("Health = 0. DEAD");
                 audioSource.Stop();
             }
-        }
     }
-    void DisplayTime(float timeToDisplay)
+
+    void UpdateHealth()
     {
-        timeToDisplay += 1;
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        //timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        timeText.text = seconds.ToString();
+        healthImg.fillAmount = playerHealth / maxHealth;
     }
 }

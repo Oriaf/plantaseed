@@ -101,10 +101,10 @@ public class CameraFollow : MonoBehaviour
      */
     RaycastHit collisionCheck(Vector3 pos, Vector3 direction, float distance)
     {
-        Debug.Log("Point: " + pos + ", Direction: " + direction + ", Max Dist: " + distance);
+        //Debug.Log("Point: " + pos + ", Direction: " + direction + ", Max Dist: " + distance);
         //Check if any object tagged as being "Ground" is colliding with the calculated point
         RaycastHit[] hits = Physics.RaycastAll(pos, direction, distance, GroundLayer);
-        Debug.Log(hits.Length);
+        //Debug.Log(hits.Length);
 
         RaycastHit closest = new RaycastHit();
         closest.distance = distance;
@@ -128,7 +128,7 @@ public class CameraFollow : MonoBehaviour
         RaycastHit bounds = collisionCheck(pivot.position, -pivot.forward, Mathf.Abs(targetZ));
         targetZ = Mathf.Sign(targetZ) * (bounds.distance - 1); //TODO: Remove the quick fix and make this better
         //camTransform.Translate(bounds.normal, Space.World); //Adjust the camera to be inside of the layer
-        Debug.Log("TargetZ: " + targetZ);
+        //Debug.Log("TargetZ: " + targetZ);
 
         CurrentDis = Mathf.Lerp(CurrentDis, targetZ, delta * 5f);
 
