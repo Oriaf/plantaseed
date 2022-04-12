@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class CollectEnergy : MonoBehaviour
 {
     public float maxHealth = 100.0f;
-    private float playerHealth = 100.0f;
-    public float damageUnit = 5.0f;
+    private float playerHealth = 100.0f; // Health to display on the health bar
+    public float damageUnit = 5.0f; //The amount of dammage for each delta time 
     public float damageDeltaTime = 3.0f;
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
-    private float countdown;
+    private float countdown; // Variable that changes with time. 
     public AudioSource audioSource;
   
    void Start ()
@@ -24,8 +24,8 @@ public class CollectEnergy : MonoBehaviour
         if (other.gameObject.CompareTag("Energy"))
         {
             //Destroy(other.gameObject); //Could be fun to have as part of the game. 
-            playerHealth = maxHealth;
-            audioSource.Play();
+            playerHealth = maxHealth; // TODO: Now it is set to max when energy is collected. Maybe change later?
+            audioSource.Play(); 
             UpdateHealth();
             countdown = damageDeltaTime;
         }
@@ -34,7 +34,7 @@ public class CollectEnergy : MonoBehaviour
 
     void Update()
     {
-            countdown -= Time.deltaTime;
+            countdown -= Time.deltaTime; // Change depending on time that passed
             if (countdown < 0.0f) 
             {
                 playerHealth -= damageUnit;
@@ -45,12 +45,12 @@ public class CollectEnergy : MonoBehaviour
         if (playerHealth < 0.0f)
             {
                 //Debug.Log("Health = 0. DEAD");
-                audioSource.Stop();
+                audioSource.Stop(); // stop audio source if dead. 
             }
     }
 
     void UpdateHealth()
     {
-        healthImg.fillAmount = playerHealth / maxHealth;
+        healthImg.fillAmount = playerHealth / maxHealth; // Update health bar on the canvas.
     }
 }

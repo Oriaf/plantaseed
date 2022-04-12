@@ -16,13 +16,15 @@ public class EnergyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Rotates the sphere of the energy ball
         transform.Rotate(rotation * speed * Time.deltaTime);
 
+        // Incrament and decrament of the amplitude of range
         var amplitude = Mathf.PingPong(Time.time, duration);
         // Transform from 0..duration to 0.5..1 range.
         amplitude = amplitude / duration * 0.5f + 0.5f;
 
-        // Set light range.
+        // Set light range to make it flicker. 
         lightSource.range = defaultRange * amplitude;
     }
 }
