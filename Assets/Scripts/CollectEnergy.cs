@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CollectEnergy : MonoBehaviour
 {
+
     public float maxHealth = 100.0f;
     private float playerHealth = 100.0f; // Health to display on the health bar
     public float damageUnit = 5.0f; //The amount of dammage for each delta time 
@@ -13,9 +14,9 @@ public class CollectEnergy : MonoBehaviour
     private float countdown; // Variable that changes with time. 
     public AudioSource audioSource;
   
-   void Start ()
+   void Awake ()
     {
-        countdown = damageDeltaTime;
+        countdown = damageDeltaTime;       
     }
 
 
@@ -34,6 +35,7 @@ public class CollectEnergy : MonoBehaviour
 
     void Update()
     {
+            
             countdown -= Time.deltaTime; // Change depending on time that passed
             if (countdown < 0.0f) 
             {
