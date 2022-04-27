@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   States: 0
+  joystick: {fileID: 0}
   Rigid: {fileID: 0}
   GroundChecks:
   - {fileID: 439413780440923359}
@@ -593,6 +594,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5909934275631051084}
     m_Modifications:
+    - target: {fileID: 1166262042039741280, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+      propertyPath: camUp
+      value: 
+      objectReference: {fileID: 5746448889637316530}
+    - target: {fileID: 1166262042039741280, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 5909934275631051084}
+    - target: {fileID: 1166262042039741280, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+      propertyPath: FollowTarget
+      value: 
+      objectReference: {fileID: 439413780689832021}
     - target: {fileID: 4435404768101523626, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
       propertyPath: m_ClearFlags
       value: 1

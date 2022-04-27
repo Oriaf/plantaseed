@@ -6261,10 +6261,18 @@ PrefabInstance:
       propertyPath: healthImg
       value: 
       objectReference: {fileID: 171415048}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 812754868}
     - target: {fileID: 439413780689831979, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 646421378}
     - target: {fileID: 4363307744077020980, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_ClearFlags
       value: 1
@@ -6630,6 +6638,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0532091, y: 1.1256483, z: 0.9547781}
   m_Center: {x: 0.03947358, y: 0.5574362, z: 0.011028703}
+--- !u!114 &646421378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8604433074130348647, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 500007297382199131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649543457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d87ab34598dc0f14fbca74dd81e462c2, type: 3}
@@ -6988,6 +7007,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6593448, y: 0.8131512, z: 0.5709669}
   m_Center: {x: -0.04072856, y: 0.4065756, z: 0.000000047639475}
+--- !u!114 &812754868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7693699730604230757, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 500007297382199131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &817855828 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7635447349537160509, guid: 0a698ed1db89fcd45a116660c0bc0e1c, type: 3}
