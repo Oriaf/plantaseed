@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform CamY;
     //public ControlsPivot AxisPivot;
     private CameraFollow CamFol;
+    public Joystick joystick;
 
     private DetectCollision Colli;
     [HideInInspector]
@@ -68,22 +69,11 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Rigid.position;
 
         //check for jumping
-        //if (States == WorldState.Grounded)
-        //{
-            if (Input.GetButtonDown("Jump"))
-            {
-                //if the player can jump, isnt attacking and isnt using an item
-                /*if (!HasJumped)
-                {              
-
-                    StopCoroutine(JumpUp(JumpAmt));
-                    StartCoroutine(JumpUp(JumpAmt));
-                    return;
-                }*/
-                SwitchGravity();
-                gravityFlipSound.Play();
-            }
-        //}
+        if (Input.GetButtonDown("Jump"))
+        {
+            SwitchGravity();
+            gravityFlipSound.Play();
+        }
     }
 
     // Update is called once per frame
@@ -96,7 +86,9 @@ public class PlayerMovement : MonoBehaviour
         {
             float Spd = Speed;
 
-           if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+            bool noMoveLaptop = Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0;
+            bool noMoveJoystick = joystick.Horizontal == 0 && joystick.Vertical == 0;
+            if (noMoveLaptop && noMoveJoystick)
             {
                 //we are not moving, linear interpolate to a walk speed
                 Spd = 0f;
@@ -209,8 +201,13 @@ public class PlayerMovement : MonoBehaviour
     //move our character
     void MoveSelf(float d, float Speed, float Accel)
     {
-        float _xMov = Input.GetAxis("Horizontal");
-        float _zMov = Input.GetAxis("Vertical");
+        float laptopH = Input.GetAxis("Horizontal");
+        float laptopV = Input.GetAxis("Vertical");
+        float joyH = joystick.Horizontal;
+        float joyV = joystick.Vertical;
+        
+        float _xMov = joyH != 0 ? joyH : laptopH;
+        float _zMov = joyV != 0 ? joyV : laptopV;
         
         bool MoveInput = false;
 
