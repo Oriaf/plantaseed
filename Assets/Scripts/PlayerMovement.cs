@@ -211,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float _xMov = Input.GetAxis("Horizontal");
         float _zMov = Input.GetAxis("Vertical");
+        
         bool MoveInput = false;
 
         //Get the axis for the Cameras' coordinate system
