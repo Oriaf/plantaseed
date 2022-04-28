@@ -65,9 +65,9 @@ public class CameraJoystick : MonoBehaviour
         //Place the camera at the position of the FollowTarget at the begining of each frame
         transform.position = FollowTarget.position;
 
-        bool cameraLook = Input.GetAxis("CameraLook") != 0;
-        camUp.enabled = cameraLook;
-        CamUnit.enabled = !cameraLook;
+        //bool cameraLook = Input.GetAxis("CameraLook") != 0;
+        //camUp.enabled = cameraLook;
+        //CamUnit.enabled = !cameraLook;
     }
 
     private void FixedUpdate()
@@ -84,17 +84,17 @@ public class CameraJoystick : MonoBehaviour
 
     public void Tick(float d)
     {
-        float h = joystick.Horizontal;
+        float h = -joystick.Horizontal;
         float v = joystick.Vertical;
         float rotateSpeed = MouseSpeed;
 
-        HandleRotation(d, v, h, rotateSpeed);
+        HandleInput(d, v, h, rotateSpeed);
         handlePivotPosition();
 
         //Look towards the player
         LookAtPos = target.position;
-        Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
-        transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
+        //Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
+        //transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
     }
     
     /*
@@ -141,7 +141,7 @@ public class CameraJoystick : MonoBehaviour
     /*
      * Rotate the camera as needed
      */
-    void HandleRotation(float d, float v, float h, float speed)
+    void HandleInput(float d, float v, float h, float speed)
     {
         if (turnSmoothing > 0)
         {
@@ -154,6 +154,25 @@ public class CameraJoystick : MonoBehaviour
             smoothY = v;
         }
 
+        //Rotate the camera around the Y axis (Rotating it around the object)
+        /*
+        lookAngle += smoothX * speed;
+        if (lookAngle > 360)
+            lookAngle = 0;
+        else if (lookAngle < 0)
+            lookAngle = 360;
+        */
+        if (smoothX != 0)
+        {
+            transform.RotateAround(transform.position, target.up, ((smoothX * speed) * 30f) * d);
+        }
+        
+        //Rotate the camera around the X-axis (Tilting the camera up or down)
+        if (smoothY != 0) {
+            transform.RotateAround(transform.position, target.right, ((smoothY * speed) * 30f) * d);
+        }
+
+        /*
         tiltAngle -= smoothY * speed;
         tiltAngle = Mathf.Clamp(tiltAngle, minAngle, maxAngle);
         pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
@@ -168,5 +187,6 @@ public class CameraJoystick : MonoBehaviour
         {
             transform.RotateAround(transform.position, transform.up, ((smoothX * speed) * 30f) * d);
         }
+        */
     }
 }

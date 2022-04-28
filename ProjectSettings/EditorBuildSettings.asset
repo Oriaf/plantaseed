@@ -5,31 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: b89fb5169b3334cfd911e42ff27ee0c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo1.unity
     guid: 616aa2c8fc0926347ab17b153818a15a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/looking for error.unity
     guid: a4a2e0fd4b0234f6daeb84d8d34c8cf9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: a535fc86846d64d778369a74c0d12347
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestAgnes.unity
     guid: f5c416f45062641cea038294c4ad9f65
-  - enabled: 1
-    path: Assets/Scenes/TestAlexander.unity
-    guid: b0fa1476b2c1d1449b6494e54fc91110
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/TestGudrun.unity
     guid: 211ffa4269c1840a0b24e877a0cecd7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/Test\xC4velin.unity"
     guid: d3a362e909a1d784db4ee892419db2e5
+  - enabled: 1
+    path: Assets/Scenes/TestAlexander.unity
+    guid: 0885cd0756907da46a50abc10f5c0251
   m_configObjects: {}
