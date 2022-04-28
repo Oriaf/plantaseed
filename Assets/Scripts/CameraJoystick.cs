@@ -89,12 +89,12 @@ public class CameraJoystick : MonoBehaviour
         float rotateSpeed = MouseSpeed;
 
         HandleInput(d, v, h, rotateSpeed);
-        handlePivotPosition();
+        checkOutOfBounds();
 
         //Look towards the player
         LookAtPos = target.position;
-        //Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
-        //transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
+        Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
+        transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
     }
     
     /*
@@ -121,14 +121,13 @@ public class CameraJoystick : MonoBehaviour
     /*
      * Push the camera behind the player by the specified distance
      */
-    void handlePivotPosition()
+    void checkOutOfBounds()
     {
         float targetZ = DistanceFromPlayer;
         
         //Check if the camera would go out of bounds
-        RaycastHit bounds = collisionCheck(pivot.position, -pivot.forward, Mathf.Abs(targetZ));
+        RaycastHit bounds = collisionCheck(transform.position, -transform.forward, Mathf.Abs(targetZ));
         targetZ = Mathf.Sign(targetZ) * (bounds.distance - 1); //TODO: Remove the quick fix and make this better
-        //camTransform.Translate(bounds.normal, Space.World); //Adjust the camera to be inside of the layer
         //Debug.Log("TargetZ: " + targetZ);
 
         CurrentDis = Mathf.Lerp(CurrentDis, targetZ, delta * 5f);
@@ -155,21 +154,24 @@ public class CameraJoystick : MonoBehaviour
         }
 
         //Rotate the camera around the Y axis (Rotating it around the object)
-        /*
-        lookAngle += smoothX * speed;
-        if (lookAngle > 360)
-            lookAngle = 0;
-        else if (lookAngle < 0)
-            lookAngle = 360;
-        */
         if (smoothX != 0)
         {
             transform.RotateAround(transform.position, target.up, ((smoothX * speed) * 30f) * d);
         }
         
         //Rotate the camera around the X-axis (Tilting the camera up or down)
-        if (smoothY != 0) {
-            transform.RotateAround(transform.position, target.right, ((smoothY * speed) * 30f) * d);
+        if (smoothY != 0)
+        {
+            Transform newPosition = transform;
+            newPosition.RotateAround(transform.position, target.right, ((smoothY * speed) * 30f) * d);
+            Vector3 changeDir = newPosition.position - transform.position;
+            RaycastHit bound = collisionCheck(transform.position, changeDir, changeDir.magnitude);
+            Vector3 boundedDir = Vector3.ClampMagnitude(changeDir, bound.distance);
+            transform.SetPositionAndRotation(transform.position + boundedDir, transform.rotation);
+            
+            //targetZ = Mathf.Sign(targetZ) * (bounds.distance - 1); //TODO: Remove the quick fix and make this better
+
+            //transform.RotateAround(transform.position, target.right, ((smoothY * speed) * 30f) * d);
         }
 
         /*
