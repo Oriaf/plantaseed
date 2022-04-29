@@ -25,7 +25,6 @@ public class CollectEnergy : MonoBehaviour
         if (other.gameObject.CompareTag("Energy"))
         {
             other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
-            //Destroy(other.gameObject); //Could be fun to have as part of the game. 
             playerHealth = maxHealth; // TODO: Now it is set to max when energy is collected. Maybe change later?
             audioSource.Play(); 
             UpdateHealth();

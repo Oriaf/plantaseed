@@ -12,23 +12,17 @@ public class EnergySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //energy = gameObject.GetComponentsInChildren<Collider>(true).gameObject;
-        if (visibleAmount >= energy.Length)
+        foreach(GameObject obj in energy)
         {
-            createRandEnergyList();
-
-            foreach (int i in indexVisable)
-            {
-                energy[i].SetActive(true);
-            }
-        }
-        else
-        {
-            Debug.Log("Visable amount is larger than amount of energy points");
+            obj.SetActive(false);
         }
 
+        createRandEnergyList();
 
-
+        foreach (int i in indexVisable)
+        {
+            energy[i].gameObject.SetActive(true);
+        }
     }
 
     void createRandEnergyList()
@@ -52,7 +46,6 @@ public class EnergySpawn : MonoBehaviour
     {
         GameObject hitObj = hit.gameObject;
         int hitIndex = System.Array.IndexOf(energy, hitObj);
-        //hitObj.SetActive(false);
         rand = Random.Range(0, energy.Length - 1);
 
         while(hitObj.activeSelf) {
@@ -65,7 +58,6 @@ public class EnergySpawn : MonoBehaviour
                 hitObj.SetActive(false);
                 indexVisable.Remove(hitIndex);
                 energy[rand].SetActive(true);
-                Debug.Log("hej");
                 indexVisable.Add(rand);
             }
         }
