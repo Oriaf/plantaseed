@@ -9,6 +9,7 @@ public class EnergySpawn : MonoBehaviour
 
     private List<int> indexVisable = new List<int>();
     private int rand;
+
     // Start is called before the first frame update
     void Start()
     {
