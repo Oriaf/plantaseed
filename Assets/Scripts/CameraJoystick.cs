@@ -5,27 +5,22 @@ public class CameraJoystick : MonoBehaviour
     //public bool FollowTargetRotation;
     [Header("FollowSpeed")]
     public float FollowRotSpeed = 0.5f;
-    public float FollowRotSpeedFlying = 10f;
-    public float GravityFollowSpeed = 0.1f;
     private Vector3 LookDirection;
 
     public Transform target;
     public Transform FollowTarget;
 
-    private Transform pivot;
     private Transform FollowRotationPivot;
     public float MinDistanceFromWall = 0.25f;
     public Transform camTransform;
     private Camera CamUnit;
     public Joystick joystick;
 
-    private Vector3 LookAtPos;
     [Header("Mouse Speeds")]
     public float MouseSpeed = 2;
     public float turnSmoothing = 0.1f;
-    public float minAngle = -35;
+    public float minAngle = 5;
     public float maxAngle = 35;
-    public float LookDirectionSpeed = 2f;
 
     public float DistanceFromPlayer;
     private float CurrentDis;
@@ -52,17 +47,13 @@ public class CameraJoystick : MonoBehaviour
     {
         transform.parent = null; //Detach the coordinates of the parent of the Camera
 
-        pivot = camTransform.parent;
-        LookAtPos = target.position; //Look towards the target that the camera follows
         CurrentDis = DistanceFromPlayer;
 
         tiltAngle = 10f;
 
-        //LookDirection = transform.forward;
-
         CamUnit = GetComponentInChildren<Camera>();
 
-        //pitch = transform.localEulerAngles.x;
+        pitch = 90 - Vector3.Angle(target.up, -transform.forward);
     }
     private void Update()
     {
@@ -92,11 +83,13 @@ public class CameraJoystick : MonoBehaviour
         float v = joystick.Vertical;
         float rotateSpeed = MouseSpeed;
 
-        Debug.Log("Pitch: " + pitch);
         float oldPitch = pitch;
         HandleInput(d, v, h, rotateSpeed);
+        
+        //Check if there is ground inbetween the camera and the player
         if (checkOutOfBounds())
         {
+            //If the player is still trying to move the camera downwards, stop them
             pitch = 90 - Vector3.Angle(target.up, -transform.forward);
             if (oldPitch - pitch > 0)
             {
@@ -104,14 +97,11 @@ public class CameraJoystick : MonoBehaviour
             }
         }
 
-        //Look towards the player
-        //Quaternion oldRotation = transform.rotation;
-        LookAtPos = target.position;
+        //Apply force to restore the camera
         Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
         transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
-        //pitch -= d * FollowRotSpeed;
-        //pitch = transform.localEulerAngles.x;
 
+        //Clamp the final pitch of the camera to be within the accepted interval
         pitch = 90 - Vector3.Angle(target.up, -transform.forward);
         if (pitch < minAngle)
         {
@@ -125,7 +115,8 @@ public class CameraJoystick : MonoBehaviour
         }
         pitch = 90 - Vector3.Angle(target.up, -transform.forward);
         
-        Debug.DrawLine(target.position, camTransform.position, Color.yellow, 0.0f, true);
+        //Debug.DrawLine(target.position, camTransform.position, Color.yellow, 0.0f, true);
+        //Debug.Log("Pitch: " + pitch);
     }
     
     /*
@@ -139,7 +130,6 @@ public class CameraJoystick : MonoBehaviour
         if (distance == 0) return closest;
         
         //Debug.Log("Point: " + pos + ", Direction: " + direction + ", Max Dist: " + distance);
-        //Check if any object tagged as being "Ground" is colliding with the calculated point
         //Check if any object tagged as being "Ground" is colliding with the calculated point
         //RaycastHit[] hits = Physics.RaycastAll(pos, direction, distance, GroundLayer);
         RaycastHit[] hits = Physics.SphereCastAll(pos, MinDistanceFromWall, direction, distance, GroundLayer);
@@ -204,22 +194,5 @@ public class CameraJoystick : MonoBehaviour
         {
             transform.RotateAround(target.position, transform.right, ((smoothY * speed) * 30f) * d);
         }
-
-        /*
-        tiltAngle -= smoothY * speed;
-        tiltAngle = Mathf.Clamp(tiltAngle, minAngle, maxAngle);
-        pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-
-        lookAngle += smoothX * speed;
-        if (lookAngle > 360)
-            lookAngle = 0;
-        else if (lookAngle < 0)
-            lookAngle = 360;
-
-        if (smoothX != 0)
-        {
-            transform.RotateAround(transform.position, transform.up, ((smoothX * speed) * 30f) * d);
-        }
-        */
     }
 }

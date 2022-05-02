@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private Transform Cam;
     private Transform CamY;
     //public ControlsPivot AxisPivot;
-    private CameraFollow CamFol;
     public Joystick joystick;
 
     private DetectCollision Colli;
@@ -58,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.transform;
         
-        CamFol = Cam.GetComponentInParent<CameraFollow>();
-
         //detatch rigidbody so it can move freely 
         Rigid.transform.parent = null;
     }
@@ -103,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
             if (!Ground)
             {
                 SetInAir();
-                return;
             }
 
         }
@@ -120,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
             if (Ground)
             {
                 SetGrounded();
-                return;
             }
         }
     }
