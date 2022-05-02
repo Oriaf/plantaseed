@@ -6270,12 +6270,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: camUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 646421378}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: FollowRotSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: MinDistanceFromWall
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4363307744077020980, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_ClearFlags
@@ -6292,6 +6300,10 @@ PrefabInstance:
     - target: {fileID: 4363307744077020980, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0.4431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363307744077020982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 5746448889637316530, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_BackGroundColor.b

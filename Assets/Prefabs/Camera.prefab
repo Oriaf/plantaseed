@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4435404768824088695}
+  m_Father: {fileID: 6555038558337830220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4435404768101523626
@@ -83,37 +83,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435404768101523624}
   m_Enabled: 1
---- !u!1 &4435404768824088692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4435404768824088695}
-  m_Layer: 0
-  m_Name: Y Pivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4435404768824088695
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435404768824088692}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4435404768101523629}
-  m_Father: {fileID: 6555038558337830220}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4580406867869894711
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +111,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4435404768824088695}
+  - {fileID: 4435404768101523629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,13 +132,13 @@ MonoBehaviour:
   GravityFollowSpeed: 0.1
   target: {fileID: 0}
   FollowTarget: {fileID: 0}
-  YPivot: {fileID: 4435404768824088695}
+  MinDistanceFromWall: 0.25
   camTransform: {fileID: 4435404768101523629}
   joystick: {fileID: 0}
   MouseSpeed: 2
   turnSmoothing: 0.1
-  minAngle: 10
-  maxAngle: 35
+  minAngle: 0
+  maxAngle: 50
   LookDirectionSpeed: -7
   DistanceFromPlayer: -10
   GroundLayer:

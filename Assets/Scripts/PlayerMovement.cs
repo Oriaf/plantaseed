@@ -56,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
         SetGrounded(); //Start by being connected to the ground
         
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        CamY = Cam.transform.parent.parent.transform;
+        CamY = Cam.transform.parent.transform;
+        
         CamFol = Cam.GetComponentInParent<CameraFollow>();
 
         //detatch rigidbody so it can move freely 

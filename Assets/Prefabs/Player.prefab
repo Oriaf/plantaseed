@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: FollowRotSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1166262042039741280, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+      propertyPath: MinDistanceFromWall
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4435404768101523626, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
       propertyPath: m_ClearFlags
       value: 1
