@@ -92,14 +92,17 @@ public class CameraJoystick : MonoBehaviour
         float v = joystick.Vertical;
         float rotateSpeed = MouseSpeed;
 
-        //Vector3 oldPosition = camTransform.position;
-        //Quaternion oldRotation = camTransform.rotation;
-        //Debug.Log("OG Position: " + oldPosition + " Rotation: " + oldRotation);
-        
         Debug.Log("Pitch: " + pitch);
+        float oldPitch = pitch;
         HandleInput(d, v, h, rotateSpeed);
-        //Debug.Log("New Position: " + camTransform.position + " Rotation: " + camTransform.rotation);
-        checkOutOfBounds();
+        if (checkOutOfBounds())
+        {
+            pitch = 90 - Vector3.Angle(target.up, -transform.forward);
+            if (oldPitch - pitch > 0)
+            {
+                transform.RotateAround(transform.position, transform.right, oldPitch - pitch);
+            }
+        }
 
         //Look towards the player
         //Quaternion oldRotation = transform.rotation;
@@ -138,8 +141,8 @@ public class CameraJoystick : MonoBehaviour
         //Debug.Log("Point: " + pos + ", Direction: " + direction + ", Max Dist: " + distance);
         //Check if any object tagged as being "Ground" is colliding with the calculated point
         //Check if any object tagged as being "Ground" is colliding with the calculated point
-        RaycastHit[] hits = Physics.RaycastAll(pos, direction, distance, GroundLayer);
-        //RaycastHit[] hits = Physics.SphereCastAll(pos, MinDistanceFromWall, direction, distance, GroundLayer);
+        //RaycastHit[] hits = Physics.RaycastAll(pos, direction, distance, GroundLayer);
+        RaycastHit[] hits = Physics.SphereCastAll(pos, MinDistanceFromWall, direction, distance, GroundLayer);
         //Debug.Log(hits.Length);
 
         foreach (RaycastHit hit in hits)
@@ -153,12 +156,14 @@ public class CameraJoystick : MonoBehaviour
     /*
      * Push the camera behind the player by the specified distance
      */
-    void checkOutOfBounds()
+    bool checkOutOfBounds()
     {
         float targetZ = DistanceFromPlayer;
         
         //Check if the camera would go out of bounds
         RaycastHit bounds = collisionCheck(transform.position, -transform.forward, Mathf.Abs(targetZ));
+
+        if (bounds.distance == 0) return false;
         
         targetZ = Mathf.Sign(targetZ) * (bounds.distance);
         CurrentDis = Mathf.Lerp(CurrentDis, targetZ, delta * 5f);
@@ -166,7 +171,8 @@ public class CameraJoystick : MonoBehaviour
         Vector3 tp = Vector3.zero;
         tp.z = CurrentDis;
         camTransform.localPosition = tp;
-        
+
+        return true;
     }
 
     /*

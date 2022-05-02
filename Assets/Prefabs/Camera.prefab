@@ -137,7 +137,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   MouseSpeed: 2
   turnSmoothing: 0.1
-  minAngle: 0
+  minAngle: 5
   maxAngle: 50
   LookDirectionSpeed: -7
   DistanceFromPlayer: -10
