@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: "Assets/Scenes/Test\xC4velin.unity"
+    path: Assets/Scenes/TestAvelin.unity
     guid: d3a362e909a1d784db4ee892419db2e5
   - enabled: 1
     path: Assets/Scenes/TestAlexander.unity
