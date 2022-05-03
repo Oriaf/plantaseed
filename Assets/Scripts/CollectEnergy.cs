@@ -6,49 +6,55 @@ using UnityEngine.UI;
 public class CollectEnergy : MonoBehaviour
 {
 
-    public float maxHealth = 100.0f;
-    private float playerHealth = 100.0f; // Health to display on the health bar
-    public float damageUnit = 5.0f; //The amount of dammage for each delta time 
-    public float damageDeltaTime = 3.0f;
+    public float maxHealth;
+    private float playerHealth = 1.0f; // Health to display on the health bar
+    public float damageUnit; //The amount of dammage for each delta time 
+    public float healthUnit;
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
-    private float countdown; // Variable that changes with time. 
     public AudioSource audioSource;
-  
-   void Awake ()
-    {
-        countdown = damageDeltaTime;       
-    }
 
+    private void Awake()
+    {
+        UpdateHealth();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Energy"))
         {
             other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
-            playerHealth = maxHealth; // TODO: Now it is set to max when energy is collected. Maybe change later?
-            audioSource.Play(); 
+
+            if(playerHealth >= maxHealth)
+            {
+                audioSource.Play();
+                Debug.Log("Over maxhealth");
+            }
+            else
+            {
+                playerHealth += healthUnit; // Add one energy for now
+                audioSource.Play();
+                UpdateHealth();
+                Debug.Log("Add one energy");
+            }
+
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            playerHealth -= damageUnit;
             UpdateHealth();
-            countdown = damageDeltaTime;
+            Debug.Log("Hit by enemy");
         }
 
     }
 
     void Update()
-    {
-            
-            countdown -= Time.deltaTime; // Change depending on time that passed
-            if (countdown < 0.0f) 
-            {
-                playerHealth -= damageUnit;
-                countdown = damageDeltaTime;
-                UpdateHealth();
-        }
-
+    {            
+        //Death
         if (playerHealth < 0.0f)
-            {
-                //Debug.Log("Health = 0. DEAD");
-                audioSource.Stop(); // stop audio source if dead. 
-            }
+        {
+            audioSource.Stop(); // stop audio source if dead. 
+        }
     }
 
     void UpdateHealth()
