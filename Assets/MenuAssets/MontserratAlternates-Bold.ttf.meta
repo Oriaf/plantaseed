@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7bad2bedb12da4b6a946ff607843a976
+guid: 35ec45bc4987f4d3b802feec5ba83ad6
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,9 +9,8 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Montserrat
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: cbdf7db57c38f44afb39c95529ac9357, type: 3}
+  - Montserrat Alternates
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
