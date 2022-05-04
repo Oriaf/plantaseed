@@ -41,13 +41,13 @@ public class Orbit : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(toogleDirection);
+        //Debug.Log(toogleDirection);
         toogleDirection = toogleDirection ? false : true;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(toogleDirection);
+       // Debug.Log(toogleDirection);
         //toogleDirection = toogleDirection ? false : true;
     }
 }

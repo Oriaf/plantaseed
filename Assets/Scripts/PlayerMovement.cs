@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumps")]
     public float JumpAmt;
     private bool HasJumped;
+    private CameraJoystick CamScript;
 
     [Header("Sounds")]
     public AudioSource gravityFlipSound;
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigid = GetComponentInChildren<Rigidbody>();
         Colli = GetComponent<DetectCollision>();
+        CamScript = GetComponentInChildren<CameraJoystick>();
         GroundDir = transform.up; //Get the y-axis (green axis) of the player
         SetGrounded(); //Start by being connected to the ground
         
@@ -94,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Rigid.position;
 
         //check for jumping
-
         if (gyroscope != null)
         {
             Vector3 rotAcceleration = new Vector3(0, 0, 0);
@@ -131,6 +133,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (States == WorldState.Grounded)
         {
+            //targetUp = transform.up;
+            
             float Spd = Speed;
 
             bool noMoveLaptop = Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0;
@@ -165,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
             if (Ground)
             {
                 SetGrounded();
+                CamScript.InAir(false);
             }
         }
     }
@@ -216,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
             Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
             this.transform.RotateAround(this.transform.position, this.transform.right, 180);
             energyScript.FlipCost();
+            CamScript.InAir(true);
             //SetInAir();
         }
         else
