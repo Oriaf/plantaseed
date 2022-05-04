@@ -8,6 +8,7 @@ public class PlayerEnergy : MonoBehaviour
     
     public float maxHealth;
     private float playerHealth = 1.0f; // Health to display on the health bar
+    [SerializeField] private float startHealth;
     [SerializeField] private float damageCost; //The amount of dammage for each hit
     [SerializeField] private float energyGain; //The amount added when collecting energy
     [SerializeField] private float flipCost; 
@@ -16,6 +17,7 @@ public class PlayerEnergy : MonoBehaviour
 
     private void Awake()
     {
+        playerHealth = startHealth;
         UpdateHealth();
     }
 

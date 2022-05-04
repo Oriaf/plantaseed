@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: e4994e5afcb5646f096aafd44c8c0e5d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BrokenPrefab: {fileID: 919132149155446097, guid: 5014ecdb6a5df42d38c74c5716890791, type: 3}
+  - DestructionClip: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
