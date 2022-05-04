@@ -48,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource gravityFlipSound;
     
     //TODO: Remove
-    public Text gyroscopeAcceleration;
+    //public Text gyroscopeAcceleration;
     
     //Input
     [Header("Phone Input")]
     public GameObject FlipButton;
-    public float GyroSensitivty = 1.0f;
+    public float GyroSensitivty = 2.0f;
     public float FlipCooldownTime = 0.5f;
     private Gyroscope gyroscope;
     private bool flip = false;
@@ -75,20 +75,17 @@ public class PlayerMovement : MonoBehaviour
         Rigid.transform.parent = null;
         
         //Use the phone sensors
-        //if (Input.gyro.enabled)
-        //{
+        if (SystemInfo.supportsGyroscope)
+        {
             gyroscope = Input.gyro;
             gyroscope.enabled = true;
-            //preFlipAttitude = gyroscope.attitude;
-            /*}
-            else
-            {
-                Debug.Log("Warning: Gyroscope not available on this device");
-                gyroscope = null;
-                flipButton.SetActive(true);
-            }*/
-
-            //gyroscopeAcceleration.text = "";
+        }
+        else
+        {
+            Debug.Log("Warning: Gyroscope not available on this device"); 
+            gyroscope = null; 
+            FlipButton.SetActive(true);
+        }
     }
 
     private void Update()   //inputs
@@ -102,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 rotAcceleration = new Vector3(0, 0, 0);
             rotAcceleration = gyroscope.rotationRateUnbiased;
-            gyroscopeAcceleration.text = rotAcceleration.ToString();
+            //gyroscopeAcceleration.text = rotAcceleration.ToString();
             if (rotAcceleration.x > GyroSensitivty && !flipCooldown)
             {
                 flip = true;

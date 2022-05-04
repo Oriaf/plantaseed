@@ -6266,9 +6266,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812754868}
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: FlipButton
+      value: 
+      objectReference: {fileID: 665920458}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: flipButton
       value: 
       objectReference: {fileID: 665920458}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: GyroSensitivty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: FlipCooldownTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: gyroscopeAcceleration
       value: 
