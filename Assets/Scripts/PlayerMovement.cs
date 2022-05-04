@@ -211,18 +211,18 @@ public class PlayerMovement : MonoBehaviour
     void SwitchGravity()
     {
         PlayerEnergy energyScript = gameObject.GetComponent<PlayerEnergy>();
-        //if (energyScript.GetEnergyLevel() > 0) {
+        if (energyScript.GetEnergyLevel() > 0) {
             gravityFlipSound.Play();
             Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
             this.transform.RotateAround(this.transform.position, this.transform.right, 180);
             energyScript.FlipCost();
             //SetInAir();
-        /*}
+        }
         else
         {
             //Player cant jump
             Debug.Log("Can't jump, too low energy");
-        }*/
+        }
 
     }
 
