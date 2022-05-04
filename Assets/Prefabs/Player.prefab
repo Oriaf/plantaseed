@@ -552,7 +552,6 @@ MonoBehaviour:
   Acceleration: 4
   turnSpeed: 20
   JumpAmt: 4
-  FlipTurnSpeed: 10
   gravityFlipSound: {fileID: 1018729559}
   FlipButton: {fileID: 0}
   GyroSensitivty: 2
