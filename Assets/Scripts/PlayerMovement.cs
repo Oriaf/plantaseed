@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,6 +46,19 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sounds")]
     public AudioSource gravityFlipSound;
+    
+    //TODO: Remove
+    public Text gyroscopeAcceleration;
+    
+    //Input
+    [Header("Phone Input")]
+    public GameObject FlipButton;
+    public float GyroSensitivty = 1.0f;
+    public float FlipCooldownTime = 0.5f;
+    private Gyroscope gyroscope;
+    private bool flip = false;
+    private bool flipCooldown = false;
+    private float currentColdownTime = 0.0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -59,6 +73,22 @@ public class PlayerMovement : MonoBehaviour
         
         //detatch rigidbody so it can move freely 
         Rigid.transform.parent = null;
+        
+        //Use the phone sensors
+        //if (Input.gyro.enabled)
+        //{
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true;
+            //preFlipAttitude = gyroscope.attitude;
+            /*}
+            else
+            {
+                Debug.Log("Warning: Gyroscope not available on this device");
+                gyroscope = null;
+                flipButton.SetActive(true);
+            }*/
+
+            //gyroscopeAcceleration.text = "";
     }
 
     private void Update()   //inputs
@@ -67,10 +97,32 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Rigid.position;
 
         //check for jumping
-        if (Input.GetButtonDown("Jump"))
+
+        if (gyroscope != null)
         {
+            Vector3 rotAcceleration = new Vector3(0, 0, 0);
+            rotAcceleration = gyroscope.rotationRateUnbiased;
+            gyroscopeAcceleration.text = rotAcceleration.ToString();
+            if (rotAcceleration.x > GyroSensitivty && !flipCooldown)
+            {
+                flip = true;
+                flipCooldown = true;
+                currentColdownTime = 0.0f;
+            }
+            else if (flipCooldown)
+            {
+                currentColdownTime += Time.deltaTime;
+                if (currentColdownTime > FlipCooldownTime)
+                {
+                    flipCooldown = false;
+                }
+            }
+                
+        }
+        if (Input.GetButtonDown("Jump") || flip)
+        {
+            flip = false;
             SwitchGravity();
-            gravityFlipSound.Play();
         }
     }
 
@@ -120,6 +172,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetFlip()
+    {
+        flip = true;
+    }
+    
     //transition to ground
     public void SetGrounded()
     {
@@ -156,19 +213,19 @@ public class PlayerMovement : MonoBehaviour
      */
     void SwitchGravity()
     {
-        //TODO: Add sound effect for switching gravity!
         PlayerEnergy energyScript = gameObject.GetComponent<PlayerEnergy>();
-        if (energyScript.GetEnergyLevel() > 0) {
+        //if (energyScript.GetEnergyLevel() > 0) {
+            gravityFlipSound.Play();
             Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
             this.transform.RotateAround(this.transform.position, this.transform.right, 180);
             energyScript.FlipCost();
             //SetInAir();
-        }
+        /*}
         else
         {
             //Player cant jump
             Debug.Log("Can't jump, too low energy");
-        }
+        }*/
 
     }
 
