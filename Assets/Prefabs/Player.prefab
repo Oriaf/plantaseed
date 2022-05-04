@@ -553,6 +553,9 @@ MonoBehaviour:
   turnSpeed: 20
   JumpAmt: 4
   gravityFlipSound: {fileID: 1018729559}
+  FlipButton: {fileID: 0}
+  GyroSensitivty: 2
+  FlipCooldownTime: 0.5
 --- !u!114 &439413780156030806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  startHealth: 7
   damageCost: 1
   energyGain: 1
   flipCost: 1
