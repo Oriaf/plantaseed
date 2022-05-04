@@ -157,9 +157,19 @@ public class PlayerMovement : MonoBehaviour
     void SwitchGravity()
     {
         //TODO: Add sound effect for switching gravity!
-        Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
-        this.transform.RotateAround(this.transform.position, this.transform.right, 180);
-        //SetInAir();
+        PlayerEnergy energyScript = gameObject.GetComponent<PlayerEnergy>();
+        if (energyScript.GetEnergyLevel() > 0) {
+            Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
+            this.transform.RotateAround(this.transform.position, this.transform.right, 180);
+            energyScript.FlipCost();
+            //SetInAir();
+        }
+        else
+        {
+            //Player cant jump
+            Debug.Log("Can't jump, too low energy");
+        }
+
     }
 
     //check the angle of the floor we are stood on

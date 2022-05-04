@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollectEnergy : MonoBehaviour
+public class PlayerEnergy : MonoBehaviour
 {
-
+    
     public float maxHealth;
     private float playerHealth = 1.0f; // Health to display on the health bar
-    public float damageUnit; //The amount of dammage for each delta time 
-    public float healthUnit;
+    [SerializeField] private float damageCost; //The amount of dammage for each hit
+    [SerializeField] private float energyGain; //The amount added when collecting energy
+    [SerializeField] private float flipCost; 
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
     public AudioSource audioSource;
 
@@ -20,6 +21,7 @@ public class CollectEnergy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision");
         if (other.gameObject.CompareTag("Energy"))
         {
             other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
@@ -27,23 +29,20 @@ public class CollectEnergy : MonoBehaviour
             if(playerHealth >= maxHealth)
             {
                 audioSource.Play();
-                Debug.Log("Over maxhealth");
             }
             else
             {
-                playerHealth += healthUnit; // Add one energy for now
+                playerHealth += energyGain; // Add one energy for now
                 audioSource.Play();
                 UpdateHealth();
-                Debug.Log("Add one energy");
             }
 
         }
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            playerHealth -= damageUnit;
+            playerHealth -= damageCost;
             UpdateHealth();
-            Debug.Log("Hit by enemy");
         }
 
     }
@@ -55,6 +54,17 @@ public class CollectEnergy : MonoBehaviour
         {
             audioSource.Stop(); // stop audio source if dead. 
         }
+    }
+
+    public void FlipCost()
+    {
+        playerHealth -= energyGain;
+        UpdateHealth();
+    }
+
+    public float GetEnergyLevel()
+    {
+        return playerHealth;
     }
 
     void UpdateHealth()
