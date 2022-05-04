@@ -10,7 +10,6 @@ public class CameraJoystick : MonoBehaviour
     public Transform target;
     public Transform FollowTarget;
 
-    private Transform FollowRotationPivot;
     public float MinDistanceFromWall = 0.25f;
     public Transform camTransform;
     private Camera CamUnit;
@@ -29,8 +28,6 @@ public class CameraJoystick : MonoBehaviour
     float smoothXvelocity;
     float smoothY;
     float smoothYvelocity;
-    private float lookAngle;
-    private float tiltAngle;
 
     [Header("Out of Bounds Check")]
     public LayerMask GroundLayer;
@@ -41,6 +38,9 @@ public class CameraJoystick : MonoBehaviour
     public Camera camUp;
 
     private float pitch = 0;
+    
+    //Gravity Flip
+    private bool GravityFlipping;
 
     //setup objects
     void Awake()
@@ -48,8 +48,6 @@ public class CameraJoystick : MonoBehaviour
         transform.parent = null; //Detach the coordinates of the parent of the Camera
 
         CurrentDis = DistanceFromPlayer;
-
-        tiltAngle = 10f;
 
         CamUnit = GetComponentInChildren<Camera>();
 
@@ -84,7 +82,14 @@ public class CameraJoystick : MonoBehaviour
         float rotateSpeed = MouseSpeed;
 
         float oldPitch = pitch;
-        HandleInput(d, v, h, rotateSpeed);
+        if(!GravityFlipping) HandleInput(d, v, h, rotateSpeed);
+        else
+        {
+            //Force the cam to remain stable at default pitch
+            float rotAmount = Mathf.Min((FollowRotSpeed * 30f) * d, 90 - pitch);
+            transform.RotateAround(transform.position, transform.right, rotAmount);
+            pitch += rotAmount;
+        }
         
         //Check if there is ground inbetween the camera and the player
         if (checkOutOfBounds())
@@ -96,11 +101,12 @@ public class CameraJoystick : MonoBehaviour
                 transform.RotateAround(transform.position, transform.right, oldPitch - pitch);
             }
         }
+            
 
         //Apply force to restore the camera
         Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FollowRotSpeed);
         transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
-
+        
         //Clamp the final pitch of the camera to be within the accepted interval
         pitch = 90 - Vector3.Angle(target.up, -transform.forward);
         if (pitch < minAngle)
@@ -194,5 +200,12 @@ public class CameraJoystick : MonoBehaviour
         {
             transform.RotateAround(target.position, transform.right, ((smoothY * speed) * 30f) * d);
         }
+    }
+
+    public void InAir(bool currently)
+    {
+        //camUp.enabled = currently;
+        //CamUnit.enabled = !currently;
+        GravityFlipping = currently;
     }
 }

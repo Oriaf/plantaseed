@@ -6274,6 +6274,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 665920458}
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: FlipTurnSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: GyroSensitivty
       value: 2
       objectReference: {fileID: 0}
@@ -6292,7 +6296,7 @@ PrefabInstance:
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: camUp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2074448350}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 
@@ -9343,6 +9347,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!20 &2074448350 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5746448889637316530, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+  m_PrefabInstance: {fileID: 586536255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2108884315
 PrefabInstance:
   m_ObjectHideFlags: 0
