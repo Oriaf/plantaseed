@@ -1638,10 +1638,6 @@ PrefabInstance:
       propertyPath: healthImg
       value: 
       objectReference: {fileID: 1033656168}
-    - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
-      propertyPath: startHealth
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5746448889637316530, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.46226418
@@ -4847,14 +4843,6 @@ PrefabInstance:
     - target: {fileID: 7577499914965482960, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849310064776304346, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8492226
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849310064776304346, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
-      propertyPath: m_Color.r
-      value: 0.47843134
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
