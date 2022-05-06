@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigid = GetComponentInChildren<Rigidbody>();
         Colli = GetComponent<DetectCollision>();
-        CamScript = GetComponentInChildren<CameraJoystick>();
+        GameObject Camera = GameObject.FindGameObjectWithTag("Camera");
+        CamScript = Camera.GetComponent<CameraJoystick>();
         GroundDir = transform.up; //Get the y-axis (green axis) of the player
         SetGrounded(); //Start by being connected to the ground
         
