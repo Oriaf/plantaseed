@@ -12,7 +12,7 @@ public class Explode : MonoBehaviour
 
     // Update is called once per frame
      float elapsedTime = 0f; // Counts up to repeatTime
-     float repeatTime = 5f; // Time taken to repeat in seconds
+     float repeatTime = 10f; // Time taken to repeat in seconds
     // Start is called before the first frame update
     void Start()
     {
