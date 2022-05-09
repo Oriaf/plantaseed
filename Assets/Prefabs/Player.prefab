@@ -429,13 +429,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6699891495038209489}
-  m_LocalRotation: {x: -0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: -1.16, z: -1.09}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5909934275631051084}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &5746448889637316530
 Camera:
   m_ObjectHideFlags: 0
@@ -553,6 +553,9 @@ MonoBehaviour:
   turnSpeed: 20
   JumpAmt: 4
   gravityFlipSound: {fileID: 1018729559}
+  FlipButton: {fileID: 0}
+  GyroSensitivty: 2
+  FlipCooldownTime: 0.5
 --- !u!114 &439413780156030806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  startHealth: 7
   damageCost: 1
   energyGain: 1
   flipCost: 1

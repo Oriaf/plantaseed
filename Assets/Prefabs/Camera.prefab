@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1166262042039741280}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,8 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowRotSpeed: 10
-  FollowRotSpeedFlying: 10
-  GravityFollowSpeed: 0.1
   target: {fileID: 0}
   FollowTarget: {fileID: 0}
   MinDistanceFromWall: 0.25
@@ -139,7 +137,6 @@ MonoBehaviour:
   turnSmoothing: 0.1
   minAngle: 5
   maxAngle: 50
-  LookDirectionSpeed: -7
   DistanceFromPlayer: -10
   GroundLayer:
     serializedVersion: 2

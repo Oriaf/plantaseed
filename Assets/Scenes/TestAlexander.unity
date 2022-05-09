@@ -5432,17 +5432,6 @@ Light:
   m_CorrespondingSourceObject: {fileID: 7635447349537160509, guid: 0a698ed1db89fcd45a116660c0bc0e1c, type: 3}
   m_PrefabInstance: {fileID: 1698975293}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &171415048 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 500007297551317331, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
-  m_PrefabInstance: {fileID: 500007297382199131}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!108 &207449937 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7635447349537160509, guid: 0a698ed1db89fcd45a116660c0bc0e1c, type: 3}
@@ -6260,7 +6249,7 @@ PrefabInstance:
     - target: {fileID: 739587071, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: healthImg
       value: 
-      objectReference: {fileID: 171415048}
+      objectReference: {fileID: 0}
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 
@@ -6273,6 +6262,10 @@ PrefabInstance:
       propertyPath: flipButton
       value: 
       objectReference: {fileID: 665920458}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: FlipTurnSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: GyroSensitivty
       value: 2
@@ -6292,7 +6285,7 @@ PrefabInstance:
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: camUp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2074448350}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 
@@ -6328,10 +6321,14 @@ PrefabInstance:
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: healthImg
       value: 
-      objectReference: {fileID: 171415048}
+      objectReference: {fileID: 500007297382199133}
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: startHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5746448889637316530, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -9343,6 +9340,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!20 &2074448350 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5746448889637316530, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+  m_PrefabInstance: {fileID: 586536255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2108884315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9743,6 +9745,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &500007297382199133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7849310064776304346, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 500007297382199131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1159924142688522465
