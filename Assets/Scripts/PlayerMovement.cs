@@ -49,9 +49,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Sounds")]
     public AudioSource gravityFlipSound;
     
-    //TODO: Remove
-    //public Text gyroscopeAcceleration;
-    
     //Input
     [Header("Phone Input")]
     public GameObject FlipButton;
