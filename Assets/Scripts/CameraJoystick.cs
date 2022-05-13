@@ -29,6 +29,9 @@ public class CameraJoystick : MonoBehaviour
     float smoothY;
     float smoothYvelocity;
 
+    private float xInverse = -1.0f; //1.0f yes, -1.0f no
+    private float yInverse = 1.0f; //1.0f yes, -1.0f no
+
     [Header("Out of Bounds Check")]
     public LayerMask GroundLayer;
 
@@ -77,8 +80,8 @@ public class CameraJoystick : MonoBehaviour
 
     public void Tick(float d)
     {
-        float h = -joystick.Horizontal;
-        float v = joystick.Vertical;
+        float h = xInverse * joystick.Horizontal;
+        float v = -yInverse * joystick.Vertical;
         float rotateSpeed = MouseSpeed;
 
         float oldPitch = pitch;
@@ -187,7 +190,6 @@ public class CameraJoystick : MonoBehaviour
             smoothY = v;
         }
         
-        
         //Rotate the camera around the Y axis (Rotating it around the object)
         if (smoothX != 0)
         {
@@ -207,5 +209,15 @@ public class CameraJoystick : MonoBehaviour
         //camUp.enabled = currently;
         //CamUnit.enabled = !currently;
         GravityFlipping = currently;
+    }
+
+    public void setXInverse(bool yes)
+    {
+        xInverse = yes ? 1.0f : -1.0f;
+    }
+    
+    public void setYInverse(bool yes)
+    {
+        yInverse = yes ? 1.0f : -1.0f;
     }
 }
