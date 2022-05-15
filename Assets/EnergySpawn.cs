@@ -10,6 +10,11 @@ public class EnergySpawn : MonoBehaviour
     private List<int> indexVisable = new List<int>();
     private int rand;
 
+    private void Awake()
+    {
+        energy = GameObject.FindGameObjectsWithTag("Energy");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +34,8 @@ public class EnergySpawn : MonoBehaviour
     void createRandEnergyList()
     {
         rand = Random.Range(0, energy.Length - 1);
-        for (int i = 0; i < visibleAmount; i++)
+
+        while (indexVisable.Count < visibleAmount)
         {
             if (indexVisable.Contains(rand))
             {

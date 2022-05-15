@@ -140,12 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75b0840d1abb5e49a1771a281e7ff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy:
-  - {fileID: 5985571217441642866}
-  - {fileID: 5985571217443215001}
-  - {fileID: 5985571217190978603}
-  - {fileID: 5985571218068984406}
-  visibleAmount: 2
+  energy: []
+  visibleAmount: 4
 --- !u!1 &5985571217190978603
 GameObject:
   m_ObjectHideFlags: 0
