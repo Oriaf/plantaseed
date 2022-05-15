@@ -1614,6 +1614,10 @@ PrefabInstance:
       propertyPath: FlipButton
       value: 
       objectReference: {fileID: 1654211858}
+    - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: GyroSensitivty
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 

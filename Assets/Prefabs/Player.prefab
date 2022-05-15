@@ -554,7 +554,7 @@ MonoBehaviour:
   JumpAmt: 4
   gravityFlipSound: {fileID: 1018729559}
   FlipButton: {fileID: 0}
-  GyroSensitivty: 2
+  GyroSensitivty: 4
   FlipCooldownTime: 0.5
 --- !u!114 &439413780156030806
 MonoBehaviour:
