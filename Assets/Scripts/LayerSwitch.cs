@@ -33,6 +33,7 @@ public class LayerSwitch : MonoBehaviour
     private Vector3 target;
     private int stage = 0;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +59,7 @@ public class LayerSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //if(animate) playerTransform.position = playerRigid.position;
+
     }
 
     //Game logic update (Animation)
