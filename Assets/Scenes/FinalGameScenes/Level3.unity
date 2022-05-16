@@ -6973,6 +6973,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9025729787569011666, guid: 9d11eede524f34dab8041d6742d8ed55, type: 3}
   m_PrefabInstance: {fileID: 4427715574607461452}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &770073825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+  m_PrefabInstance: {fileID: 1206988994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &770073826
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770073825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000002
+  m_Height: 2.0000005
+  m_Direction: 1
+  m_Center: {x: 0.00000005960466, y: -0.000015258789, z: -0.00000008940697}
 --- !u!1001 &777216867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7059,6 +7078,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 277271122}
     m_Modifications:
+    - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
