@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39212948, g: 0.58141917, b: 0.7888079, a: 1}
+  m_IndirectSpecularColor: {r: 0.3938009, g: 0.5833611, b: 0.7845912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12236,6 +12236,14 @@ PrefabInstance:
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962965761555737298, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: nextScenePath
+      value: Scenes/FinalGameScenes/Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962965761555737298, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: energyRequired
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990443156453018465, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_Name
