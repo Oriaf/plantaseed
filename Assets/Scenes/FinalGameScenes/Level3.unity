@@ -6581,6 +6581,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4202554657542040552, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5769313692429721068, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6634,6 +6638,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 500007297113150124, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
   m_PrefabInstance: {fileID: 692918348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &692918354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1422457055597213027, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 692918348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &697590387
 GameObject:
   m_ObjectHideFlags: 0
@@ -14526,6 +14541,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.4431373
       objectReference: {fileID: 0}
+    - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: keyImg
+      value: 
+      objectReference: {fileID: 692918354}
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: healthImg
       value: 
