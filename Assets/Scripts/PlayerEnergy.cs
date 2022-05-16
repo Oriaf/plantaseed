@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerEnergy : MonoBehaviour
 {
@@ -64,10 +63,7 @@ public class PlayerEnergy : MonoBehaviour
         //Death
         if (playerHealth < 0.0f)
         {
-            audioSource.Stop(); // stop audio source if dead.
-            // start death animation
-            playerHealth = startHealth;
-            SceneManager.LoadScene("StartMenu");
+            audioSource.Stop(); // stop audio source if dead. 
         }
     }
 
