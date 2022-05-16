@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39212948, g: 0.58141917, b: 0.7888079, a: 1}
+  m_IndirectSpecularColor: {r: 0.3938009, g: 0.5833611, b: 0.7845912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2418,6 +2418,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &413137523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2284338186600589274, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 413137520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &439384341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6812,7 +6817,7 @@ PrefabInstance:
     - target: {fileID: 439413780156030807, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: FlipButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 413137523}
     - target: {fileID: 1238288963595465982, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: joystick
       value: 
