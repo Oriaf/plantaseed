@@ -18,6 +18,7 @@ public class PlayerEnergy : MonoBehaviour
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
     public Image keyImg;
     public AudioSource audioSource;
+    private LayerSwitch layerScript;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerEnergy : MonoBehaviour
         keyHealth = startKey;
         UpdateHealth();
         UpdateKey();
+        layerScript = gameObject.GetComponentInParent<LayerSwitch>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,6 +82,11 @@ public class PlayerEnergy : MonoBehaviour
         return playerHealth;
     }
 
+    public float GetKeyLevel()
+    {
+        return keyHealth;
+    }
+
     void UpdateHealth()
     {
         healthImg.fillAmount = playerHealth / maxHealth; // Update health bar on the canvas.
@@ -88,6 +95,8 @@ public class PlayerEnergy : MonoBehaviour
 
     void UpdateKey()
     {
-        keyImg.fillAmount = keyHealth / maxHealth; // Update health bar on the canvas.
+        float t = layerScript.energyRequired;
+        t = t != 0 ? t : 1;
+        keyImg.fillAmount = keyHealth / t; // Update health bar on the canvas.
     }
 }
