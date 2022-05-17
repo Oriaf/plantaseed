@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestAlexander.unity
     guid: 0885cd0756907da46a50abc10f5c0251
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UserTest.unity
     guid: c9064a34e0bd84d41bba3593b3811014
   - enabled: 1

@@ -8,6 +8,7 @@ TagManager:
   - Energy
   - Enemy
   - Camera
+  - Key
   layers:
   - Default
   - TransparentFX

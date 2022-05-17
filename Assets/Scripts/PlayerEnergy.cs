@@ -33,24 +33,51 @@ public class PlayerEnergy : MonoBehaviour
         Debug.Log("Collision");
         if (other.gameObject.CompareTag("Energy"))
         {
-            other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
+            collectEnergy(other);
+        }
 
-            if(playerHealth >= maxHealth)
-            {
-                audioSource.Play();
-            }
-            else
-            {
-                playerHealth += energyGain; // Add one energy for now
-                keyHealth += energyGain;
-                audioSource.Play();
-                UpdateHealth();
-                UpdateKey();
-            }
-
+        if (other.gameObject.CompareTag("Key"))
+        {
+            collectKey(other);
         }
 
         if (other.gameObject.CompareTag("Enemy"))
+        {
+            takeDamage();
+        }
+
+    }
+
+    void collectEnergy(Collider other)
+    {
+        other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
+
+        if (playerHealth >= maxHealth)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            playerHealth += energyGain; // Add one energy for now
+            audioSource.Play();
+            UpdateHealth();
+        }
+    }
+
+    void collectKey(Collider other)
+    {
+        Destroy(other.gameObject);
+        if(keyHealth > 0)
+        {
+            keyHealth += 1;
+            UpdateKey();
+        }
+
+    }
+
+    void takeDamage()
+    {
+        if(playerHealth > 0)
         {
             playerHealth -= damageCost;
             UpdateHealth();
