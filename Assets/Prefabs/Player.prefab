@@ -415,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7685539056155988977}
   - component: {fileID: 5746448889637316530}
+  - component: {fileID: 3579896018339770364}
   m_Layer: 0
   m_Name: UpCam
   m_TagString: Untagged
@@ -479,6 +480,39 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &3579896018339770364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6699891495038209489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &8308414282489935728
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,10 +635,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   startHealth: 7
+  startKey: 0
   damageCost: 1
   energyGain: 1
   flipCost: 1
   healthImg: {fileID: 0}
+  keyImg: {fileID: 0}
   audioSource: {fileID: 1734000260}
 --- !u!1001 &72106408600412062
 PrefabInstance:
@@ -720,6 +756,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6555038558337830220, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
   m_PrefabInstance: {fileID: 72106408600412062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4363307744077020982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4435404768101523624, guid: dd06f7b2dfb49f64299c61c66023b9a7, type: 3}
+  m_PrefabInstance: {fileID: 72106408600412062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7904469074934467095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363307744077020982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &2967113738680017676
 PrefabInstance:
   m_ObjectHideFlags: 0

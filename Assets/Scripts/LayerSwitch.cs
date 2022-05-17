@@ -67,7 +67,7 @@ public class LayerSwitch : MonoBehaviour
     {
         float delta = Time.deltaTime;
 
-        /*if (animate)
+        if (animate)
         {
             switch (stage)
             {
@@ -84,7 +84,7 @@ public class LayerSwitch : MonoBehaviour
                     levelTransition();
                     break;
             } 
-        }*/
+        }
     }
 
     //Triggered when a collider enters the layer
@@ -95,8 +95,7 @@ public class LayerSwitch : MonoBehaviour
         {
             //Debug.Log(this.name + ": " + other.gameObject.name + " tagged with " + other.tag);
 
-            Debug.Log(energyScript.GetKeyLevel() + ", " + energyRequired);
-            if (energyScript.GetKeyLevel() >= energyRequired)
+            if (energyScript.GetEnergyLevel() > energyRequired)
             {
                 animate = true;
                 stage = 0;
@@ -104,7 +103,6 @@ public class LayerSwitch : MonoBehaviour
                 moveScript.enabled = false;
                 playerRigid.velocity = new Vector3(0, 0, 0);
                 target = Vector3.negativeInfinity;
-                levelTransition();
             }
         }
     }
