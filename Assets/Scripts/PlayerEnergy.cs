@@ -13,7 +13,6 @@ public class PlayerEnergy : MonoBehaviour
     [SerializeField] private float startKey;
     [SerializeField] private float damageCost; //The amount of dammage for each hit
     [SerializeField] private float energyGain; //The amount added when collecting energy
-    [SerializeField] private float flipCost;
     
     [Header("UI objects")]
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
@@ -119,10 +118,4 @@ public class PlayerEnergy : MonoBehaviour
         keyImg.fillAmount = keyHealth / t; // Update health bar on the canvas.
     }
 
-    public void FlipCost()
-    {
-        playerHealth -= 1;
-        UpdateHealth();
-        checkDeath();
-    }
 }
