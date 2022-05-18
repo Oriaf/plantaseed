@@ -31,10 +31,10 @@ public class PlayerEnergy : MonoBehaviour
 
     private void checkDeath()
     {
-        if(playerHealth < 0.9f)
+        if(playerHealth < 0.1f)
         {
             gameOverCanvas.SetActive(true);
-            audioSource.Stop();
+            audioSource.Stop(); 
         }
     }
 
