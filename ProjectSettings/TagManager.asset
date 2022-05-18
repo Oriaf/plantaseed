@@ -9,7 +9,7 @@ TagManager:
   - Enemy
   - Camera
   - Key
-  - GameOver
+  - JoyStick
   layers:
   - Default
   - TransparentFX

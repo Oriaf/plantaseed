@@ -1223,6 +1223,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7215786204984436035, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
   m_PrefabInstance: {fileID: 308118212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &362097444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7272973205177317426, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 413137520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76fdd282c9a4249ad2352e2d10013e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &362459300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1814,7 @@ PrefabInstance:
     - target: {fileID: 7272973205177317426, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: pauseMenuUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766089231}
     - target: {fileID: 7577499914965482960, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.46
@@ -5394,6 +5405,11 @@ Transform:
   m_Father: {fileID: 719763595}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1766089231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6287500770250875374, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+  m_PrefabInstance: {fileID: 2074272896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1785868394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6074,6 +6090,14 @@ PrefabInstance:
     - target: {fileID: 109813901372279033, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500769467484939, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 362097444}
+    - target: {fileID: 6287500769467484939, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 6287500770272493331, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
       propertyPath: m_Pivot.x

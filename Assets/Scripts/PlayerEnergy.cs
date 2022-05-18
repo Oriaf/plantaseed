@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
-
+    [Header("Values")]
     public float maxHealth;
     private float playerHealth = 1.0f; // Health to display on the health bar
     private float keyHealth = 1.0f;
@@ -14,6 +14,8 @@ public class PlayerEnergy : MonoBehaviour
     [SerializeField] private float damageCost; //The amount of dammage for each hit
     [SerializeField] private float energyGain; //The amount added when collecting energy
     [SerializeField] private float flipCost;
+    
+    [Header("UI objects")]
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
     public Image keyImg;
     public AudioSource audioSource;
