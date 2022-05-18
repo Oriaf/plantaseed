@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Camera
   - Key
+  - GameOver
   layers:
   - Default
   - TransparentFX

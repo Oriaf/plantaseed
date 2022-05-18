@@ -25,15 +25,15 @@ public class SwitchGateMaterial : MonoBehaviour
     void Update()
     {
         //Debug.Log(energyScript.GetEnergyLevel());
-        if (energyScript.GetEnergyLevel() < layerScript.energyRequired)
+        if (energyScript.GetKeyLevel() < layerScript.energyRequired)
         {
             gameObject.GetComponent<MeshRenderer>().material = prison;
-            Debug.Log("Here its less then required");
+            //Debug.Log("Here its less then required");
         }
         else
         {
             gameObject.GetComponent<MeshRenderer>().material = tranparent;
-            Debug.Log("Here its more");
+            //Debug.Log("Here its more");
         }
     }
 }

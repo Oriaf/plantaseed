@@ -634,14 +634,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  startHealth: 7
-  startKey: 0
+  startHealth: 2
+  startKey: 1
   damageCost: 1
   energyGain: 1
   flipCost: 1
   healthImg: {fileID: 0}
   keyImg: {fileID: 0}
   audioSource: {fileID: 1734000260}
+  gameOverCanvas: {fileID: 0}
 --- !u!1001 &72106408600412062
 PrefabInstance:
   m_ObjectHideFlags: 0
