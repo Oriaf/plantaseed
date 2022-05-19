@@ -95,7 +95,6 @@ public class LayerSwitch : MonoBehaviour
         {
             //Debug.Log(this.name + ": " + other.gameObject.name + " tagged with " + other.tag);
 
-            Debug.Log(energyScript.GetKeyLevel() + ", " + energyRequired);
             if (energyScript.GetKeyLevel() >= energyRequired)
             {
                 animate = true;

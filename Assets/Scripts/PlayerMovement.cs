@@ -218,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
             gravityFlipSound.Play();
             Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
             this.transform.RotateAround(this.transform.position, this.transform.right, 180);
-            energyScript.FlipCost();
+            // energyScript.FlipCost();
             CamScript.InAir(true);
             //SetInAir();
         }

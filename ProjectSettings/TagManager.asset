@@ -8,6 +8,8 @@ TagManager:
   - Energy
   - Enemy
   - Camera
+  - Key
+  - JoyStick
   layers:
   - Default
   - TransparentFX
