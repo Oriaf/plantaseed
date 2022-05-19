@@ -205,6 +205,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 524017340}
     m_Modifications:
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: m_TagString
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2560,6 +2564,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2569,7 +2577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6990443156453018465, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990443156453018465, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5599,8 +5607,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962965761555737298, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: energyRequired
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6135918852602659890, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_Materials.Array.data[0]
