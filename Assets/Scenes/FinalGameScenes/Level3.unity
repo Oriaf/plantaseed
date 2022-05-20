@@ -10320,6 +10320,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4898740695142643399, guid: 74af4b819c2e16747968996f93c8d864, type: 3}
   m_PrefabInstance: {fileID: 1560672161}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1560672163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4898740695142643398, guid: 74af4b819c2e16747968996f93c8d864, type: 3}
+  m_PrefabInstance: {fileID: 1560672161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560672162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a52bbb2d0e4d8a4e827ede05e485dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1563080383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 913966030845673493, guid: bf2703e1d27014a3bb1924bd2aecb603, type: 3}
@@ -11850,6 +11861,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6287500768918781988, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500769231497131, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500769283330384, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6287500769467484939, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -11857,6 +11880,22 @@ PrefabInstance:
     - target: {fileID: 6287500769467484939, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500769622828511, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500770151563348, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1560672163}
+    - target: {fileID: 6287500770151563348, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: btn_scene_change
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287500770250875374, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6287500770272493331, guid: 24c346d9eea244747992aa240fd85f4b, type: 3}
       propertyPath: m_Pivot.x
