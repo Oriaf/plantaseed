@@ -117,8 +117,9 @@ public class PlayerEnergy : MonoBehaviour
 
     void UpdateKey()
     {
-        int t = layerScript.energyRequired;
-        t = t != 0 ? t : 1;
+        //int t = layerScript.energyRequired;
+        //t = t != 0 ? t : 1;
+        int t = 7;
         keyImg.fillAmount = keyHealth / t; // Update health bar on the canvas.
     }
 
