@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3928604, g: 0.5847087, b: 0.7739012, a: 1}
+  m_IndirectSpecularColor: {r: 0.39212948, g: 0.58141917, b: 0.7888079, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1719,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 500007295966762474, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 500007297113150124, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1829,28 +1833,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
---- !u!114 &413137521 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1422457055597213027, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
-  m_PrefabInstance: {fileID: 413137520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &413137522 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7849310064776304346, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
-  m_PrefabInstance: {fileID: 413137520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &413137523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2284338186600589274, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
@@ -2255,6 +2237,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &540157213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 51790234582961974, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 413137520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &578116354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4602,11 +4595,15 @@ PrefabInstance:
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: keyImg
       value: 
-      objectReference: {fileID: 413137521}
+      objectReference: {fileID: 540157213}
+    - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
+      propertyPath: startKey
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: healthImg
       value: 
-      objectReference: {fileID: 413137522}
+      objectReference: {fileID: 2104613463}
     - target: {fileID: 5364360087579163793, guid: 9c0ffe0ce7d8e574793492aa5609eb59, type: 3}
       propertyPath: gameOverCanvas
       value: 
@@ -5899,6 +5896,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2104613463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4157635092917325793, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+  m_PrefabInstance: {fileID: 413137520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &16076883057371151
 GameObject:
   m_ObjectHideFlags: 0
