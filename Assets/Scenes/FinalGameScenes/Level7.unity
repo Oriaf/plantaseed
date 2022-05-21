@@ -9889,6 +9889,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 64.01318
       objectReference: {fileID: 0}
+    - target: {fileID: 1232181994788624837, guid: 12b129ec1dc86f54f87e2a39c23b0f3e, type: 3}
+      propertyPath: m_text
+      value: The seed turned into a big beautiful tree. You should share your result
+        with your friends!
+      objectReference: {fileID: 0}
     - target: {fileID: 1232181994811755017, guid: 12b129ec1dc86f54f87e2a39c23b0f3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
