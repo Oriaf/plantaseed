@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 7635447349537160509}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!54 &2283931127908833873
 Rigidbody:
   m_ObjectHideFlags: 0

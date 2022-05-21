@@ -1502,10 +1502,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1174969077947741391, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 1174969078572920838, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 1174969078574497763, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
     - target: {fileID: 1269985055908747950, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
       propertyPath: nextScenePath
       value: Scenes/Level6
       objectReference: {fileID: 0}
+    - target: {fileID: 1325410379518138879, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: m_TagString
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854688437194100896, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 4854688437234057711, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 4854688437352813373, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 4854688437570660977, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
     - target: {fileID: 4854688438392439037, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1554,6 +1586,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LavaLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 4854688438431289627, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 4854688438769893979, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 4854688438882845176, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64ef11eea82304102a9efed4660bed4c, type: 3}
 --- !u!1001 &1560672161

@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 62730517}
+  afterEffect: {fileID: 0}
 --- !u!135 &152130671
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9095,7 +9095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1363831701}
+  afterEffect: {fileID: 0}
 --- !u!135 &1129862523
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10037,7 +10037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1008240440}
+  afterEffect: {fileID: 0}
 --- !u!135 &1199989450
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10872,6 +10872,10 @@ PrefabInstance:
     - target: {fileID: 3381218615314997874, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5853444619654474115, guid: 0458a3cf55b1d0047903131f0ab9e27a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13254,7 +13258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 2032053214}
+  afterEffect: {fileID: 0}
 --- !u!135 &1588318398
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14989,7 +14993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 968080426}
+  afterEffect: {fileID: 0}
 --- !u!135 &1802286630
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16151,7 +16155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 2098460572}
+  afterEffect: {fileID: 0}
 --- !u!135 &1941413567
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16747,7 +16751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1652534360}
+  afterEffect: {fileID: 0}
 --- !u!135 &1998086427
 SphereCollider:
   m_ObjectHideFlags: 0

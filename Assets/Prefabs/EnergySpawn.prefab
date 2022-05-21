@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 5985571218428550580}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!54 &4342601611996838192
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 5985571218384200283}
+  afterEffect: {fileID: 0}
 --- !u!54 &8831322867319951279
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 5985571216657216830}
+  afterEffect: {fileID: 0}
 --- !u!54 &6776280091553002463
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 5985571216666486709}
+  afterEffect: {fileID: 0}
 --- !u!54 &5009193798145701625
 Rigidbody:
   m_ObjectHideFlags: 0

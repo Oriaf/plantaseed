@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39212948, g: 0.58141917, b: 0.7888079, a: 1}
+  m_IndirectSpecularColor: {r: 0.3928604, g: 0.5847087, b: 0.7739012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1072419673}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &66551344
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 385498463}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &362459304
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1552194688}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &439519990
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 2075101219}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &867883405
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3864,7 +3864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1394862529}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &1182621076
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4799,7 +4799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1636519907}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &1583169960
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 1, y: 1, z: 1}
   speed: 15
-  lightSource: {fileID: 1543853704}
+  afterEffect: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
 --- !u!135 &1649955745
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5645,6 +5645,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5985571217441642877, guid: 502863755e85dc44991f033af4b55dcb, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 5985571217443215000, guid: 502863755e85dc44991f033af4b55dcb, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
+    - target: {fileID: 5985571218068984401, guid: 502863755e85dc44991f033af4b55dcb, type: 3}
+      propertyPath: afterEffect
+      value: 
+      objectReference: {fileID: 792654110753426988, guid: b299f121aa0ae764ab5b5fe16d46648b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502863755e85dc44991f033af4b55dcb, type: 3}
 --- !u!4 &1865350206 stripped

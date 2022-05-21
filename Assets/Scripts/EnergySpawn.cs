@@ -52,6 +52,8 @@ public class EnergySpawn : MonoBehaviour
     public void spawnNewEnergy(Collider hit)
     {
         GameObject hitObj = hit.gameObject;
+        hit.GetComponent<EnergyController>().SetAfterEffect();
+
         int hitIndex = System.Array.IndexOf(energy, hitObj);
         rand = Random.Range(0, energy.Length - 1);
 

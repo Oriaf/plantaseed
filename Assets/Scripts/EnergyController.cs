@@ -7,12 +7,15 @@ public class EnergyController : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private Vector3 rotation;
     [SerializeField] private float speed;
-    [Header("Light")]
-    public Light lightSource;
+    [Header("Effect")]
+    public GameObject afterEffect;
+    private Light lightSource;
     private float defaultRange = 4.0f;
     private float duration = 2.0f;
 
-
+    void Start(){
+        lightSource = gameObject.GetComponentInChildren<Light>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,5 +29,9 @@ public class EnergyController : MonoBehaviour
 
         // Set light range to make it flicker. 
         lightSource.range = defaultRange * amplitude;
+    }
+
+    public void SetAfterEffect(){
+        Instantiate(afterEffect, transform.position, transform.rotation);
     }
 }
