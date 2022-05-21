@@ -8,7 +8,7 @@ public class PlayerEnergy : MonoBehaviour
     [Header("Values")]
     public float maxHealth;
     private float playerHealth = 1.0f; // Health to display on the health bar
-    private float keyHealth = 0.0f;
+    private float keyHealth = 1.0f;
     [SerializeField] private float startHealth;
     [SerializeField] private float startKey;
     [SerializeField] private float damageCost; //The amount of dammage for each hit
@@ -23,16 +23,11 @@ public class PlayerEnergy : MonoBehaviour
 
     private void Awake()
     {
-
-        GameObject[] trigger = GameObject.FindGameObjectsWithTag("Trigger");
-        foreach(GameObject temp in trigger){
-            if (temp != null) layerScript = temp.GetComponent<LayerSwitch>();
-        } 
-
         playerHealth = startHealth;
         keyHealth = startKey;
         UpdateHealth();
         UpdateKey();
+        layerScript = gameObject.GetComponentInParent<LayerSwitch>();
     }
 
     private void checkDeath()
@@ -46,6 +41,7 @@ public class PlayerEnergy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision");
         if (other.gameObject.CompareTag("Energy"))
         {
             collectEnergy(other);
@@ -84,9 +80,9 @@ public class PlayerEnergy : MonoBehaviour
     void collectKey(Collider other)
     {
         Destroy(other.gameObject);
-        if (keyHealth >= 0)
+        if (keyHealth > 0)
         {
-            keyHealth += 1.0f;
+            keyHealth += 1;
             UpdateKey();
         }
 
@@ -117,9 +113,8 @@ public class PlayerEnergy : MonoBehaviour
 
     void UpdateKey()
     {
-        //int t = layerScript.energyRequired;
-        //t = t != 0 ? t : 1;
-        int t = 7;
+        float t = layerScript.energyRequired;
+        t = t != 0 ? t : 1;
         keyImg.fillAmount = keyHealth / t; // Update health bar on the canvas.
     }
 

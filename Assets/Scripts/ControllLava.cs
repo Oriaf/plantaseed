@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ControllLava : MonoBehaviour
 {
+    int targetTime; 
+
     public Animator _animator; 
 
     private void Start() {
-        _animator.SetTrigger("Play");
+        
+        _animator.Play("Lava", -1,Random.Range(0.0f, 5.0f));
     }
+    
     
 }
