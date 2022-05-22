@@ -10181,6 +10181,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 51790234582961974, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cdf383590ebee941b8f2e8d35649147, type: 3}
+    - target: {fileID: 51790234582961974, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 500007297113150124, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10317,6 +10325,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4495734813288142408, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1e66ce3e550bc24780bda16fa4dce0d, type: 3}
     - target: {fileID: 5468905900377924235, guid: b5bdc6611bc2eba47b5f553241f30041, type: 3}
       propertyPath: m_IsActive
       value: 1
