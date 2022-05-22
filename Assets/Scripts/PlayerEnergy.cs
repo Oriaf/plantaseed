@@ -68,6 +68,8 @@ public class PlayerEnergy : MonoBehaviour
 
     void collectEnergy(Collider other)
     {
+        ParticleSystem afterEffect = GetComponentInChildren<ParticleSystem>();
+        afterEffect.Play();
         other.GetComponentInParent<EnergySpawn>().spawnNewEnergy(other);
 
         if (playerHealth >= maxHealth)
