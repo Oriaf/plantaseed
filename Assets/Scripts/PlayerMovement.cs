@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
             flip = false;
             SwitchGravity();
         }
+
     }
 
     // Update is called once per frame
@@ -169,6 +170,17 @@ public class PlayerMovement : MonoBehaviour
                 SetGrounded();
                 CamScript.InAir(false);
             }
+        }
+
+        if(transform.position.x > 45 || 
+        transform.position.x < -45 || 
+        transform.position.y > 45 || 
+        transform.position.y < -45 || 
+        transform.position.z > 45 || 
+        transform.position.z < -45)
+        {
+            PlayerEnergy script = GetComponent<PlayerEnergy>();
+            script.induceDeath();
         }
     }
 

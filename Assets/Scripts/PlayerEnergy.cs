@@ -44,6 +44,11 @@ public class PlayerEnergy : MonoBehaviour
         }
     }
 
+    public void induceDeath(){
+        gameOverCanvas.SetActive(true);
+        audioSource.Stop(); 
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision");
