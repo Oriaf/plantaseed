@@ -117,6 +117,7 @@ public class PlayerEnergy : MonoBehaviour
         if (keyHealth >= 0)
         {
             keyHealth += 1;
+            audioScript.playClip(energyCollect);
             UpdateKey();
         }
 
