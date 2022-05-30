@@ -32,7 +32,9 @@ public class LayerSwitch : MonoBehaviour
     private CameraJoystick camScript;
     private Vector3 target;
     private int stage = 0;
-
+    
+    [Header("Sound")]
+    public AudioClip sound;
 
     // Start is called before the first frame update
     void Start()
@@ -103,6 +105,11 @@ public class LayerSwitch : MonoBehaviour
                 moveScript.enabled = false;
                 playerRigid.velocity = new Vector3(0, 0, 0);
                 target = Vector3.negativeInfinity;
+
+                PlayAudio audioScript = other.gameObject.GetComponent<PlayAudio>();
+                audioScript.stopMusic();
+                audioScript.playClip(sound);
+                
                 levelTransition();
             }
         }

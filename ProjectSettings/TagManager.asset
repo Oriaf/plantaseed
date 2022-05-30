@@ -10,6 +10,8 @@ TagManager:
   - Camera
   - Key
   - JoyStick
+  - Trigger
+  - Music
   layers:
   - Default
   - TransparentFX

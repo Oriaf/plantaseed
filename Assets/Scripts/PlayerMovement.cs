@@ -47,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private CameraJoystick CamScript;
 
     [Header("Sounds")]
-    public AudioSource gravityFlipSound;
+    public AudioClip gravityFlip;
+    private PlayAudio audioScript;
     
     //Input
     [Header("Phone Input")]
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
             gyroscope = null; 
             FlipButton.SetActive(true);
         }
+        
+        audioScript = GetComponent<PlayAudio>();
     }
 
     private void Update()   //inputs
@@ -227,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerEnergy energyScript = gameObject.GetComponent<PlayerEnergy>();
         if (energyScript.GetEnergyLevel() > 0) {
-            gravityFlipSound.Play();
+            audioScript.playClip(gravityFlip);
             Rigid.AddForce(transform.up * JumpAmt, ForceMode.Impulse);
             this.transform.RotateAround(this.transform.position, this.transform.right, 180);
             // energyScript.FlipCost();

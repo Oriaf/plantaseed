@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,17 +18,25 @@ public class PlayerEnergy : MonoBehaviour
     [Header("UI objects")]
     public Image healthImg; //Insert the health-bar for the green image that is changed in the script
     public Image keyImg;
-    public AudioSource audioSource;
     private LayerSwitch layerScript;
     public GameObject gameOverCanvas;
 
+    [Header("Sound")]
+    public AudioClip energyCollect;
+    public AudioClip energyFull;
+    public AudioClip gameOver;
+    public AudioClip hurt;
+    private PlayAudio audioScript;
+    
     private void Awake()
     {
 
         GameObject[] trigger = GameObject.FindGameObjectsWithTag("Trigger");
         foreach(GameObject temp in trigger){
             if (temp != null) layerScript = temp.GetComponent<LayerSwitch>();
-        } 
+        }
+
+        audioScript = GetComponent<PlayAudio>();
 
         playerHealth = startHealth;
         keyHealth = startKey;
@@ -35,18 +44,31 @@ public class PlayerEnergy : MonoBehaviour
         UpdateKey();
     }
 
+    
+    private bool dead = false;
     private void checkDeath()
     {
-        if(playerHealth < 0.1f)
+        if(playerHealth < 0.1f && !dead)
         {
             gameOverCanvas.SetActive(true);
-            audioSource.Stop(); 
+            audioScript.stopAudio();
+            audioScript.playClip(gameOver);
+            audioScript.stopMusic();
+            audioScript.inverseMusic();
+            dead = true;
         }
     }
 
     public void induceDeath(){
-        gameOverCanvas.SetActive(true);
-        audioSource.Stop(); 
+        if (!dead)
+        {
+            gameOverCanvas.SetActive(true);
+            audioScript.stopAudio();
+            audioScript.playClip(gameOver);
+            audioScript.stopMusic();
+            audioScript.inverseMusic();
+            dead = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,12 +101,12 @@ public class PlayerEnergy : MonoBehaviour
 
         if (playerHealth >= maxHealth)
         {
-            audioSource.Play();
+            audioScript.playClip(energyFull);
         }
         else
         {
             playerHealth += energyGain; // Add one energy for now
-            audioSource.Play();
+            audioScript.playClip(energyCollect);
             UpdateHealth();
         }
     }
@@ -105,7 +127,9 @@ public class PlayerEnergy : MonoBehaviour
         if (playerHealth > 0)
         {
             playerHealth -= damageCost;
-            UpdateHealth(); }
+            UpdateHealth();
+            audioScript.playClip(hurt);
+        }
     }
     public float GetEnergyLevel()
     {

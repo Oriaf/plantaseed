@@ -17793,6 +17793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 4631181930383850900, guid: cffda27804632054daffcb0e4187f07b, type: 3}
+      propertyPath: m_TagString
+      value: Music
+      objectReference: {fileID: 0}
     - target: {fileID: 4631181930383850902, guid: cffda27804632054daffcb0e4187f07b, type: 3}
       propertyPath: m_RootOrder
       value: 14
